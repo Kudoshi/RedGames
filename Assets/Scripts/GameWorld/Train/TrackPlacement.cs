@@ -10,8 +10,10 @@ public enum TrackType { TRACK_LEFT = -1, TRACK_STRAIGHT = 0, TRACK_RIGHT = 1 }
 public class TrackPlacement : MonoBehaviour
 {
     public float TRACK_HEIGHT= 1.1f;
+
+    public Pool<Transform> m_TracksPool = new Pool<Transform>();
+
     [SerializeField] int m_MaxTrackPlacement = 3;
-    [SerializeField] private Pool<Transform> m_TracksPool = new Pool<Transform>();
     [SerializeField] private LayerMask m_TileLayer;
 
     [Header("Track Prefab")]
@@ -25,7 +27,9 @@ public class TrackPlacement : MonoBehaviour
     public Material m_MatRight;
 
     private int m_SpawnCheckHitLayer;
+    private int m_StartingTrackIndex;
 
+    public int StartingTrackIndex => m_StartingTrackIndex;
 
     private void Awake()
     {
@@ -39,6 +43,7 @@ public class TrackPlacement : MonoBehaviour
         Transform track1 = m_TracksPool.GetNextObject();
         track1.position = new Vector3(0, TRACK_HEIGHT, 0);
         track1.gameObject.SetActive(true);
+        m_StartingTrackIndex = m_TracksPool.GetCurrentIdx();
 
         Transform track2 = m_TracksPool.GetNextObject();
         track2.position = new Vector3(0, TRACK_HEIGHT, 1);
