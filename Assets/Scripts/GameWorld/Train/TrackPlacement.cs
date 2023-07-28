@@ -12,6 +12,7 @@ public class TrackPlacement : MonoBehaviour
     public float TRACK_HEIGHT= 1.1f;
     [SerializeField] int m_MaxTrackPlacement = 3;
     [SerializeField] private Pool<Transform> m_TracksPool = new Pool<Transform>();
+    [SerializeField] private LayerMask m_TileLayer;
 
     [Header("Track Prefab")]
     [SerializeField] GameObject m_TrackLeftPf;
@@ -22,7 +23,8 @@ public class TrackPlacement : MonoBehaviour
     public Material m_MatLeft;
     public Material m_MatForward;
     public Material m_MatRight;
-    
+
+    private int m_SpawnCheckHitLayer;
 
 
     private void Awake()
@@ -51,6 +53,13 @@ public class TrackPlacement : MonoBehaviour
         track4.gameObject.SetActive(true);
 
 
+
+        // Set all bits to 1
+        int allLayers = ~0;
+
+        // Turn off the bits for the following
+        m_SpawnCheckHitLayer = allLayers & ~m_TileLayer.value;
+
     }
 
     // Start is called before the first frame update
@@ -78,12 +87,22 @@ public class TrackPlacement : MonoBehaviour
     public void SpawnTrainTrack(TrackType trackType)
     {
         Transform oldTrack = m_TracksPool.GetCurrentObject();
-        Debug.Log("2. Old Rotation: " + oldTrack.rotation);
         Vector3 spawnPos = oldTrack.position + oldTrack.forward;
         Transform newTrack = m_TracksPool.GetNextObject();
+
+        // Check if tile is empty
+        Collider[] hitCollider = Physics.OverlapSphere(spawnPos, 0.45f, m_SpawnCheckHitLayer);
+        
+        if (hitCollider.Length > 0)
+        {
+            Debug.Log("Unable to spawn track");
+            return;
+        }
+
         newTrack.position = spawnPos;
         newTrack.rotation = Quaternion.identity;
         newTrack.gameObject.SetActive(true); 
+
 
         float rotationY = 0;
 
@@ -111,6 +130,5 @@ public class TrackPlacement : MonoBehaviour
 
         //Debug.Log(newTrack.rotation);
     }
-
 
 }

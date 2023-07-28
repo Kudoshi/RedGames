@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5592978385706405709}
   - component: {fileID: 1364893858984079377}
   - component: {fileID: 6455080543178345348}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Temp_Track_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
