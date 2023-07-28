@@ -1,9 +1,10 @@
 .custombutton__btn {
-    margin-top: 950px;
-    margin-bottom: 120px;
-    padding-left: 80px;
-    padding-right: 80px;
+    margin-top: 1000px;
+    margin-bottom: 80px;
+    padding-left: 40px;
+    padding-right: 40px;
     font-size: 55px;
+    border-top-width: 0;
 }
 
 .custombutton__btn:hover {
