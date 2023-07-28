@@ -58,6 +58,13 @@ namespace GameWorld.Util
             }
         }
 
+        public T GetCurrentObject()
+        {
+            if (this.m_CurrIdx <= 0) return null;
+
+            return this.m_Objects[this.m_CurrIdx - 1];
+        }
+
         public T GetNextObject()
         {
             T nextObj = this.m_Objects[this.m_CurrIdx];
