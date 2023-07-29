@@ -43,6 +43,8 @@ public class TrainMovement : MonoBehaviour
             m_CurrentSpeed = m_CurrentSpeed < m_MaxSpeed ? m_CurrentSpeed * m_SpeedMultiplier : m_MaxSpeed;
         }
 
+        //Maintain same height
+        m_TargetTrackPos = new Vector3(m_TargetTrackPos.x, transform.position.y, m_TargetTrackPos.z);
     }
 
     private void Update()
