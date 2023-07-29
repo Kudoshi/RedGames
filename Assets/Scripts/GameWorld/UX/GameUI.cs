@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEditor.AssetImporters;
 using UnityEngine;
@@ -33,9 +34,16 @@ public class GameUI : UXBehaviour
 
         m_CurrScore = 0;
 
+        ResetUI();
 
     }
-    
+
+    private void ResetUI()
+    {
+        m_TotalCollectableCount.text = "x0";
+        m_TotalScore.text = "0";
+        m_SpeedLabel.text = "0 km/h";
+    }
 
     public void CollectableCount(int score)
     {
@@ -46,7 +54,7 @@ public class GameUI : UXBehaviour
 
     public void UpdateTotalScore(int score)
     {
-
+        m_TotalScore.text = score.ToString();
     }
     
 
@@ -54,7 +62,6 @@ public class GameUI : UXBehaviour
     {
         m_SpeedLabel.text = speed + " km/h";
     }
-
 
 
     public void RestartScore()

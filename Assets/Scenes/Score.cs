@@ -21,6 +21,7 @@ public class Score : MonoBehaviour
 
     //}
 
+
     public void AddScoreFunc(int score)
     {
         m_CollectableScore += score;
