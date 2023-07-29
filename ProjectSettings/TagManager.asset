@@ -3,9 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Point
-  - Train
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -13,11 +11,11 @@ TagManager:
   - Obstacles
   - Water
   - UI
-  - Obstacles
-  - Train
-  - Tracks
-  - Tile
   - Collectible
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
