@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Train : SingletonMono<Train>
 {
+    public AudioClip BreakRail;
     public TrackPlacement TrackPlacement;
     public TrainMovement TrainMovement;
     public Score Score;
@@ -13,6 +14,7 @@ public class Train : SingletonMono<Train>
     public void TrainDerailed()
     {
         //Train derailed;
+        UXManager.Instance.AudioSource.PlayOneShot(BreakRail);
         Destroy(this);
         GameOver();
     }
