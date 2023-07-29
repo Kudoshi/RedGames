@@ -1,20 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Burst.CompilerServices;
 using UnityEngine;
 
-public class Treasure : MonoBehaviour
+public class Collectable : MonoBehaviour
 {
-    [SerializeField] public int CollectableScore = 30;
-    void OnTriggerEnter(Collider collider)
+    [SerializeField] private int m_CollectableScore = 30;
+
+    private void OnTriggerEnter(Collider collider)
     {
-       
         if (collider.gameObject.tag == "Train")
         {
-            Destroy(gameObject);
+            // Destroy(gameObject);
+            gameObject.SetActive(false);
             Score gameScore = collider.gameObject.GetComponent<Score>();
             gameScore.CollectedItem();
-            gameScore.AddScoreFunc(CollectableScore);
+            gameScore.AddScoreFunc(m_CollectableScore);
 
         } 
 
