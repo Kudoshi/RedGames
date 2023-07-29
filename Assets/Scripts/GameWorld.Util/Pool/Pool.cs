@@ -74,6 +74,15 @@ namespace GameWorld.Util
             return nextObj;
         }
 
+        public int GetCurrentIdx()
+        {
+            if (this.m_CurrIdx < 0) return -1;
+
+            if (this.m_CurrIdx == 0) return this.m_Objects.Length - 1;
+
+            return this.m_CurrIdx - 1;
+        }
+
         private int GetNextIdx()
         {
             return (this.m_CurrIdx + 1) % this.Count;
