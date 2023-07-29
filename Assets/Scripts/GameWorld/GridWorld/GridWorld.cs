@@ -79,6 +79,19 @@ public class GridWorld : MonoBehaviour
         this.UpdateCenter(position);
     }
 
+    private void OnValidate()
+    {
+        if (this.m_TileConfigs == null) return;
+
+        for (int t = 1; t < this.m_TileConfigs.Length; t++)
+        {
+            this.m_TileConfigs[t].UpperBound = Mathf.Max(
+              this.m_TileConfigs[t].UpperBound,
+              this.m_TileConfigs[t - 1].UpperBound
+            );
+        }
+    }
+
     private void OnDestroy()
     {
         this.m_TilePool.Dispose();
