@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 557437400}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 16, z: 0}
+  m_LocalPosition: {x: 0, y: 16, z: 1.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -541,6 +541,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1823595190234869625, guid: 949329d7201781040b80410b93206278,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.75
+      objectReference: {fileID: 0}
     - target: {fileID: 2117640610051688236, guid: 949329d7201781040b80410b93206278,
         type: 3}
       propertyPath: TRACK_HEIGHT
@@ -556,6 +561,11 @@ PrefabInstance:
       propertyPath: m_CollectibleLayer.m_Bits
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 2451735726311631142, guid: 949329d7201781040b80410b93206278,
+        type: 3}
+      propertyPath: BreakRail
+      value: 
+      objectReference: {fileID: 8300000, guid: c5ee72b2ab2738d42ab8abe020de1199, type: 3}
     - target: {fileID: 2719602920974111368, guid: 949329d7201781040b80410b93206278,
         type: 3}
       propertyPath: m_Name

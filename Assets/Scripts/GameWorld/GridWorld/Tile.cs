@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    [SerializeField] private LayerMask m_TrackLayer;
+    [SerializeField] private LayerMask m_TrainAndTrackLayer;
 
     public int Index => this.m_Index;
 
@@ -35,16 +35,20 @@ public class Tile : MonoBehaviour
         {
             Collider[] colliders = Physics.OverlapBox(
                 tilePosition, Vector3.one * 0.5f, Quaternion.identity,
-                this.m_TrackLayer
+                this.m_TrainAndTrackLayer
             );
 
-            if (colliders.Length > 0)
+            foreach (Collider collider in colliders)
             {
-                Track track = colliders[0].GetComponent<Track>();
+                Track track = collider.GetComponent<Track>();
+                Train train = collider.GetComponent<Train>();
+
                 if (track != null)
                 {
                     if (track.TrainHasTravelled) return;
                 }
+
+                if (train != null) return;
             }
         }
 

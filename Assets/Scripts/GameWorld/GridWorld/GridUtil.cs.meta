@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/RotateObject.cs.meta
+guid: af6a7b60089d5d844a00c7b0581d1ea7
+========
 guid: 24866c697ea1fc44b9c2caf2ace02181
+>>>>>>>> origin/feature/grid-world:Assets/Scripts/GameWorld/GridWorld/GridUtil.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
