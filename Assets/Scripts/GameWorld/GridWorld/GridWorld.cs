@@ -36,6 +36,7 @@ public class GridWorld : MonoBehaviour
 
     private void GenerateTileArea()
     {
+        Debug.Log("Generate Tile Area");
         for (int x = 0; x < this.m_Size.x; x++)
         {
             for (int y = 0; y < this.m_Size.y; y++)

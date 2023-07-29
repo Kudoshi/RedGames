@@ -5,7 +5,6 @@ public class Tile : MonoBehaviour
     public int Index => this.m_Index;
 
     private int m_Index;
-    // private MeshRenderer m_MeshRenderer;
 
     public void Initialize(int randIndex, TileConfig[] tileConfigs)
     {
@@ -28,10 +27,5 @@ public class Tile : MonoBehaviour
         Transform trans = config.Pool.GetNextObject();
         trans.gameObject.SetActive(true);
         trans.position = this.transform.position + Vector3.up;
-    }
-
-    private void Awake()
-    {
-        // this.m_MeshRenderer = this.GetComponent<MeshRenderer>();
     }
 }
