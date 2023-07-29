@@ -13,21 +13,10 @@ public class Treasure : MonoBehaviour
         {
             Destroy(gameObject);
             Score gameScore = collider.gameObject.GetComponent<Score>();
-            gameScore.CollectableScoreFunc(CollectableScore);
+            gameScore.CollectedItem();
+            gameScore.AddScoreFunc(CollectableScore);
 
-        }
+        } 
 
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

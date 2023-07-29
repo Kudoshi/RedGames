@@ -7,7 +7,9 @@ using UnityEngine.UIElements;
 public class GameUI : UXBehaviour
 {
     //public Label m_TotalScore;
-    public Label m_TotalCollectableScore;
+    public Label m_TotalCollectableCount;
+    public Label m_TotalScore;
+    public Label m_SpeedLabel;
     public Button m_leftButton;
     public Button m_middleButton;
     public Button m_rightButton;
@@ -19,7 +21,9 @@ public class GameUI : UXBehaviour
     {
         InitializeDoc();
         //m_TotalScore = m_Root.Q<Label>("TotalScore");
-        m_TotalCollectableScore = m_Root.Q<Label>("Point");
+        m_TotalCollectableCount = m_Root.Q<Label>("CollectibleCount");
+        m_TotalScore = m_Root.Q<Label>("TotalScore");
+        m_SpeedLabel = m_Root.Q<Label>("SpeedLabel");
         m_leftButton = m_Root.Q<Button>("left_btn");
         m_middleButton = m_Root.Q<Button>("straight_btn");
         m_rightButton = m_Root.Q<Button>("right_btn");
@@ -31,18 +35,27 @@ public class GameUI : UXBehaviour
 
 
     }
-    //public void DisplayingScore(int score)
-    //{
-    //    m_TotalScore.text = score.ToString();
+    
 
-    //}
-
-    public void CollectableScore(int score)
+    public void CollectableCount(int score)
     {
-        m_TotalCollectableScore.text = "x"+score.ToString();
+        m_TotalCollectableCount.text = "x"+score.ToString();
         m_CurrScore = score;
 
     }
+
+    public void UpdateTotalScore(int score)
+    {
+
+    }
+    
+
+    public void UpdateSpeed(int speed)
+    {
+        m_SpeedLabel.text = speed + " km/h";
+    }
+
+
 
     public void RestartScore()
     {
