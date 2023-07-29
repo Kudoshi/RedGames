@@ -9,6 +9,7 @@ public class GridWorld : MonoBehaviour
 
     [SerializeField] private int2 m_Center;
     [SerializeField] private Transform m_TargetTransform;
+    [SerializeField] private TileConfig[] m_TileConfigs;
 
     private int2 m_HalfSize;
 
