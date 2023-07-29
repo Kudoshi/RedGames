@@ -66,8 +66,8 @@ public class TrainMovement : MonoBehaviour
             GetNewTrackTarget();
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, m_TargetTrackPos, m_CurrentSpeed * Time.deltaTime);
-        
+
+        float currentSpeed = m_CurrentSpeed;
         // Rotation
         float angleDirection = Vector3.Angle(transform.forward, m_TargetTrack.forward);
 
@@ -75,11 +75,15 @@ public class TrainMovement : MonoBehaviour
         {
             // Calculate the rotation needed to look at the target's forward direction
             Quaternion targetRotation = Quaternion.LookRotation(m_TargetTrack.forward, transform.up);
+            currentSpeed *= 0.3f;
 
             // Smoothly rotate towards the target rotation
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, m_CurrentSpeed * Time.deltaTime);
         }
-       
+        
+        transform.position = Vector3.MoveTowards(transform.position, m_TargetTrackPos, m_CurrentSpeed * Time.deltaTime);
+
+
 
     }
 }

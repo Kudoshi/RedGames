@@ -12,7 +12,7 @@ public class Train : SingletonMono<Train>
     public void TrainDerailed()
     {
         //Train derailed;
-        transform.rotation = new Quaternion(0, 0, 90, 0);
+        Destroy(this);
         GameOver();
     }
 
