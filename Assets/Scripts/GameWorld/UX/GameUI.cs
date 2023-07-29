@@ -8,13 +8,14 @@ using UnityEngine.UIElements;
 public class GameUI : UXBehaviour
 {
     //public Label m_TotalScore;
+    public AudioClip RailPlaceClick;
     public Label m_TotalCollectableCount;
     public Label m_TotalScore;
     public Label m_SpeedLabel;
     public Button m_leftButton;
     public Button m_middleButton;
     public Button m_rightButton;
-
+    
     private int m_CurrScore;
 
     // Start is called before the first frame update
@@ -74,18 +75,19 @@ public class GameUI : UXBehaviour
     public void LeftButton()
     {
         Train.Instance.TrackPlacement.SpawnTrainTrack(TrackType.TRACK_LEFT);
+        UXManager.Instance.AudioSource.PlayOneShot(RailPlaceClick);
     }
 
     public void MiddleButton()
     {
         Train.Instance.TrackPlacement.SpawnTrainTrack(TrackType.TRACK_STRAIGHT);
-
+        UXManager.Instance.AudioSource.PlayOneShot(RailPlaceClick);
     }
 
     public void RightButton()
     {
         Train.Instance.TrackPlacement.SpawnTrainTrack(TrackType.TRACK_RIGHT);
-
+        UXManager.Instance.AudioSource.PlayOneShot(RailPlaceClick);
     }
 
 

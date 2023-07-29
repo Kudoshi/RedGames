@@ -1872,21 +1872,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Train_Track (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 5716563860830679520, guid: b02e977dba6e6a1469b09ce06ec1ea65,
-        type: 3}
-      propertyPath: m_LeftRail
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5716563860830679520, guid: b02e977dba6e6a1469b09ce06ec1ea65,
-        type: 3}
-      propertyPath: m_RightRail
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5716563860830679520, guid: b02e977dba6e6a1469b09ce06ec1ea65,
-        type: 3}
-      propertyPath: m_StraightRail
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
