@@ -376,6 +376,14 @@ MonoBehaviour:
         type: 3}
       m_DefaultActive: 0
     Offset: {x: 0, y: 0, z: 0}
+  - Parent: {fileID: 1420545899}
+    UpperBound: 35
+    Pool:
+      Count: 100
+      m_Prefab: {fileID: 4646933745565138, guid: 4983f395b2610de4e9f688a87bbd9af9,
+        type: 3}
+      m_DefaultActive: 0
+    Offset: {x: 0, y: -0.5, z: 0}
 --- !u!1 &947758194
 GameObject:
   m_ObjectHideFlags: 3
