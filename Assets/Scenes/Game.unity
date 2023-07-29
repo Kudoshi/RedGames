@@ -359,6 +359,7 @@ MonoBehaviour:
       m_Prefab: {fileID: 4133024124776080370, guid: ea1c029106fb77042833eb90a101ec6d,
         type: 3}
       m_DefaultActive: 0
+    Offset: {x: 0, y: 0, z: 0}
   - Parent: {fileID: 2001912667}
     UpperBound: 25
     Pool:
@@ -366,6 +367,7 @@ MonoBehaviour:
       m_Prefab: {fileID: 4334696594685364071, guid: 787c3d83ec5cdd04c8524cb8ff91e797,
         type: 3}
       m_DefaultActive: 0
+    Offset: {x: 0, y: 0, z: 0}
   - Parent: {fileID: 16074738}
     UpperBound: 30
     Pool:
@@ -373,13 +375,7 @@ MonoBehaviour:
       m_Prefab: {fileID: 531087023535014752, guid: 27efa3b53c77f24408c94e4f2ceab1f5,
         type: 3}
       m_DefaultActive: 0
-  - Parent: {fileID: 16074738}
-    UpperBound: 35
-    Pool:
-      Count: 100
-      m_Prefab: {fileID: 4511726206134138, guid: d7de6c400fc6dce4e847672adb026364,
-        type: 3}
-      m_DefaultActive: 0
+    Offset: {x: 0, y: 0, z: 0}
 --- !u!1 &947758194
 GameObject:
   m_ObjectHideFlags: 3

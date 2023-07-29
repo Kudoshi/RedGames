@@ -26,6 +26,6 @@ public class Tile : MonoBehaviour
 
         Transform trans = config.Pool.GetNextObject();
         trans.gameObject.SetActive(true);
-        trans.position = this.transform.position + Vector3.up;
+        trans.position = this.transform.position + Vector3.up + config.Offset;
     }
 }
