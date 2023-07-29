@@ -7,6 +7,7 @@ public class TrainMovement : MonoBehaviour
     [SerializeField] private float m_StartingSpeed;
     [SerializeField] private float m_MaxSpeed;
     [SerializeField] private float m_SpeedMultiplier;
+    [SerializeField] private int m_TravelScore;
 
     private TrackPlacement m_TrackPlacement;
     private int m_CurrentTrackIndex; // Going to which track index
@@ -15,19 +16,26 @@ public class TrainMovement : MonoBehaviour
     private float m_CurrentSpeed;
     private bool m_NoTrackLose;
 
+    private Train m_Train;
+
     private void Awake()
     {
+        m_Train = GetComponent<Train>();
         m_TrackPlacement = GetComponent<TrackPlacement>();
     }
 
     private void Start()
     {
         m_CurrentTrackIndex = m_TrackPlacement.StartingTrackIndex;
+        m_TargetTrack = m_TrackPlacement.m_TracksPool.Objects[m_CurrentTrackIndex];
         m_CurrentSpeed = m_StartingSpeed;
     }
 
     private void GetNewTrackTarget()
     {
+        // Set the old track as travelled
+        m_TargetTrack.GetComponent<Track>().SetTrackTravelled();
+
         m_CurrentTrackIndex = (m_CurrentTrackIndex + 1) % m_TrackPlacement.m_TracksPool.Count;
 
         // If no new track
@@ -42,7 +50,7 @@ public class TrainMovement : MonoBehaviour
             m_TargetTrackPos = m_TargetTrack.transform.position;
             m_CurrentSpeed = m_CurrentSpeed < m_MaxSpeed ? m_CurrentSpeed * m_SpeedMultiplier : m_MaxSpeed;
             UXManager.Instance?.GameUI.UpdateSpeed(m_CurrentSpeed);
-
+            m_Train.Score.AddScoreFunc(m_TravelScore);
         }
 
         //Maintain same height
@@ -56,15 +64,15 @@ public class TrainMovement : MonoBehaviour
         {
             if (m_NoTrackLose == true)
             {
-                Debug.Log("DEAD");
+                m_Train.TrainDerailed();
                 return;
             }
 
             GetNewTrackTarget();
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, m_TargetTrackPos, m_CurrentSpeed * Time.deltaTime);
-        
+
+        float currentSpeed = m_CurrentSpeed;
         // Rotation
         float angleDirection = Vector3.Angle(transform.forward, m_TargetTrack.forward);
 
@@ -72,11 +80,15 @@ public class TrainMovement : MonoBehaviour
         {
             // Calculate the rotation needed to look at the target's forward direction
             Quaternion targetRotation = Quaternion.LookRotation(m_TargetTrack.forward, transform.up);
+            currentSpeed *= 0.3f;
 
             // Smoothly rotate towards the target rotation
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, m_CurrentSpeed * Time.deltaTime);
         }
-       
+        
+        transform.position = Vector3.MoveTowards(transform.position, m_TargetTrackPos, m_CurrentSpeed * Time.deltaTime);
+
+
 
     }
 }

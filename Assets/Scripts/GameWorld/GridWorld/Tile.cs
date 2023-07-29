@@ -1,45 +1,54 @@
 using UnityEngine;
 
-using Random = Unity.Mathematics.Random;
-
 public class Tile : MonoBehaviour
 {
+    [SerializeField] private LayerMask m_TrackLayer;
+
     public int Index => this.m_Index;
 
     private int m_Index;
-    private MeshRenderer m_MeshRenderer;
 
     public void Initialize(int randIndex, TileConfig[] tileConfigs)
     {
         this.m_Index = randIndex;
 
-        TileConfig config = tileConfigs[0];
-        for (int t = 1; t < tileConfigs.Length; t++)
+        int configIndex = -1;
+        for (int t = 0; t < tileConfigs.Length; t++)
         {
-            if (randIndex < tileConfigs[t].UpperBound)
+            if (randIndex <= tileConfigs[t].UpperBound)
             {
                  break;
             }
-            config = tileConfigs[t];
+            configIndex = t;
         }
 
+        if (configIndex == -1) return;
+
+        TileConfig config = tileConfigs[configIndex];
+
         Transform trans = config.Pool.GetNextObject();
+        Vector3 tilePosition = this.transform.position + Vector3.up + config.Offset;
+
+        // check if collectable can be placed or not
+        Collectable collectable = trans.GetComponent<Collectable>();
+        if (collectable != null)
+        {
+            Collider[] colliders = Physics.OverlapBox(
+                tilePosition, Vector3.one * 0.5f, Quaternion.identity,
+                this.m_TrackLayer
+            );
+
+            if (colliders.Length > 0)
+            {
+                Track track = colliders[0].GetComponent<Track>();
+                if (track != null)
+                {
+                    if (track.TrainHasTravelled) return;
+                }
+            }
+        }
+
         trans.gameObject.SetActive(true);
-        trans.position = this.transform.position + Vector3.up;
-
-        // DEBUG: set a color based on index (for debug visualization onnly)
-        // Random rand = Random.CreateFromIndex((uint)index);
-        // MaterialPropertyBlock block = new MaterialPropertyBlock();
-
-        // block.SetColor(
-        //     "_BaseColor",
-        //     new Color(rand.NextFloat(), rand.NextFloat(), rand.NextFloat())
-        // );
-        // this.m_MeshRenderer.SetPropertyBlock(block);
-    }
-
-    private void Awake()
-    {
-        this.m_MeshRenderer = this.GetComponent<MeshRenderer>();
+        trans.position = tilePosition;
     }
 }

@@ -8,8 +8,14 @@ public class Track : MonoBehaviour
     [SerializeField] private GameObject m_StraightRail;
     [SerializeField] private GameObject m_RightRail;
 
+    private bool m_TrainHasTravelled;
+
+    public bool TrainHasTravelled => m_TrainHasTravelled;
+
     public void DisplayTrack(TrackType trackType)
     {
+        m_TrainHasTravelled = false;
+
         if (trackType == TrackType.TRACK_LEFT)
         {
             m_LeftRail.SetActive(true);
@@ -29,6 +35,11 @@ public class Track : MonoBehaviour
             m_RightRail.SetActive(true);
         }
 
+    }
+
+    public void SetTrackTravelled()
+    {
+        m_TrainHasTravelled = true;
     }
 }
 

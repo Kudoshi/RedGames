@@ -53,6 +53,13 @@ public class GridWorld : MonoBehaviour
         nextTile.gameObject.SetActive(true);
         nextTile.transform.position = new Vector3(position.x, 0.0f, position.y);
 
+        if (
+            (position.x < this.m_Size.x && position.x > -this.m_Size.x) &&
+            (position.y < this.m_Size.y && position.y > -this.m_Size.y)
+        ) {
+            return;
+        }
+
         nextTile.Initialize(
             GridUtil.GetTileRandIndex(position, 100),
             this.m_TileConfigs
@@ -77,6 +84,19 @@ public class GridWorld : MonoBehaviour
     {
         Vector3 position = this.m_TargetTransform.position;
         this.UpdateCenter(position);
+    }
+
+    private void OnValidate()
+    {
+        if (this.m_TileConfigs == null) return;
+
+        for (int t = 1; t < this.m_TileConfigs.Length; t++)
+        {
+            this.m_TileConfigs[t].UpperBound = Mathf.Max(
+              this.m_TileConfigs[t].UpperBound,
+              this.m_TileConfigs[t - 1].UpperBound
+            );
+        }
     }
 
     private void OnDestroy()

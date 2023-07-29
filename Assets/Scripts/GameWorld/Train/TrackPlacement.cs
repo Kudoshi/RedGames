@@ -13,19 +13,19 @@ public class TrackPlacement : MonoBehaviour
     public Pool<Transform> m_TracksPool = new Pool<Transform>();
 
     //[SerializeField] int m_MaxTrackPlacement = 3;
-    [SerializeField] private LayerMask m_TileLayer;
-
-    public Material m_MatLeft;
-    public Material m_MatForward;
-    public Material m_MatRight;
+    [SerializeField] private LayerMask m_CollectibleLayer;
+    [SerializeField] private LayerMask m_TrainLayer;
 
     private int m_SpawnCheckHitLayer;
     private int m_StartingTrackIndex;
+    private Train m_Train;
 
     public int StartingTrackIndex => m_StartingTrackIndex;
 
     private void Awake()
     {
+        m_Train = GetComponent<Train>();
+
         m_TracksPool.Initialize(new GameObject("Track Parent").transform);
 
         // Spawn Initial Track
@@ -41,7 +41,7 @@ public class TrackPlacement : MonoBehaviour
         int allLayers = ~0;
 
         // Turn off the bits for the following
-        m_SpawnCheckHitLayer = allLayers & ~m_TileLayer.value;
+        m_SpawnCheckHitLayer = allLayers & ~(m_CollectibleLayer.value | m_TrainLayer.value);
 
     }
 
@@ -51,6 +51,7 @@ public class TrackPlacement : MonoBehaviour
         track.position = new Vector3(0, TRACK_HEIGHT, zPos);
         Track trackScript = track.GetComponent<Track>();
         trackScript.DisplayTrack(TrackType.TRACK_STRAIGHT);
+        trackScript.SetTrackTravelled();
         track.gameObject.SetActive(true);
     }
 
@@ -84,10 +85,10 @@ public class TrackPlacement : MonoBehaviour
 
         // Check if tile is empty
         Collider[] hitCollider = Physics.OverlapSphere(spawnPos, 0.45f, m_SpawnCheckHitLayer);
-        
+         
         if (hitCollider.Length > 0)
         {
-            Debug.Log("Unable to spawn track");
+            Debug.Log(hitCollider[0].name);
             return;
         }
 
