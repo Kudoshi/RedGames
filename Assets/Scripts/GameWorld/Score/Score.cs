@@ -25,7 +25,7 @@ public class Score : MonoBehaviour
     public void AddScoreFunc(int score)
     {
         m_CollectableScore += score;
-        UXManager.Instance?.GameUI.UpdateTotalScore(score);
+        UXManager.Instance?.GameUI.UpdateTotalScore(m_CollectableScore);
     }
 
     public void CollectedItem()
