@@ -42,7 +42,7 @@ public class GameUI : UXBehaviour
     {
         m_TotalCollectableCount.text = "x0";
         m_TotalScore.text = "0";
-        m_SpeedLabel.text = "0 km/h";
+        m_SpeedLabel.text = "20 km/h";
     }
 
     public void CollectableCount(int score)
@@ -58,9 +58,11 @@ public class GameUI : UXBehaviour
     }
     
 
-    public void UpdateSpeed(int speed)
+    public void UpdateSpeed(float speed)
     {
-        m_SpeedLabel.text = speed + " km/h";
+        int calculatedSpeed = (int)((1f / 0.01f) * (speed - 2) + 10);
+
+        m_SpeedLabel.text = calculatedSpeed + " km/h";
     }
 
 
