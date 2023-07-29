@@ -1,7 +1,8 @@
 using UnityEngine;
+using Voxell.Util;
 
 public class EntryPoint : MonoBehaviour
 {
-    private void Start()
-    {}
+    [SerializeField, Scene] private string m_UXScene;
+    [SerializeField, Scene] private string m_GameScene;
 }
