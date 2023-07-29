@@ -203,6 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrackPlacement: {fileID: 2117640610051688236}
   TrainMovement: {fileID: 2119605354641603281}
+  Score: {fileID: 2917010225770631598}
 --- !u!114 &2117640610051688236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,9 +222,9 @@ MonoBehaviour:
     m_Prefab: {fileID: 310850309310842517, guid: b02e977dba6e6a1469b09ce06ec1ea65,
       type: 3}
     m_DefaultActive: 0
-  m_TileLayer:
+  m_CollectibleLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
   m_TrainLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -242,6 +243,7 @@ MonoBehaviour:
   m_StartingSpeed: 2
   m_MaxSpeed: 6
   m_SpeedMultiplier: 1.005
+  m_TravelScore: 25
 --- !u!54 &3469344060149779756
 Rigidbody:
   m_ObjectHideFlags: 0
