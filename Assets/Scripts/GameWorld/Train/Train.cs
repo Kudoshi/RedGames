@@ -11,6 +11,13 @@ public class Train : SingletonMono<Train>
     public Score Score;
 
 
+    public void TrainCrashed()
+    {
+        // Play train crash
+        TrainAnimation.PlayAnimation(TrainAnimation.OFFRAIL_ANIM);
+        GameOver();
+    }
+
     public void TrainDerailed()
     {
         //Train derailed;

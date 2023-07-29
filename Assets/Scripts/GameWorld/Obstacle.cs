@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] GameObject m_CrashPfx;
 
-    // Update is called once per frame
-    void Update()
+    private BoxCollider m_Collider;
+
+    private void Awake()
     {
-        
+        m_Collider = GetComponent<BoxCollider>();
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Train"))
+        {
+            m_CrashPfx.transform.position = collision.contacts[0].point;
+            m_CrashPfx.SetActive(true);
+            m_Collider.enabled = false;
+
+            collision.collider.GetComponent<Train>().TrainCrashed();
+        }
     }
 }
