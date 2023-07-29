@@ -2,17 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Train : MonoBehaviour
+public class Train : SingletonMono<Train>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public TrackPlacement TrackPlacement;
+    public TrainMovement TrainMovement;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

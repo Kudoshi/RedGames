@@ -51,17 +51,19 @@ public class GameUI : UXBehaviour
 
     public void LeftButton()
     {
-        Debug.Log("Left Button");
+        Train.Instance.TrackPlacement.SpawnTrainTrack(TrackType.TRACK_LEFT);
     }
 
     public void MiddleButton()
     {
-        Debug.Log("Middle Button");
+        Train.Instance.TrackPlacement.SpawnTrainTrack(TrackType.TRACK_STRAIGHT);
+
     }
 
     public void RightButton()
     {
-        Debug.Log("Right Button");
+        Train.Instance.TrackPlacement.SpawnTrainTrack(TrackType.TRACK_RIGHT);
+
     }
 
 
