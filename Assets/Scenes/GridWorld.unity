@@ -473,7 +473,7 @@ MonoBehaviour:
       Count: 144
       m_Prefab: {fileID: 1217625264}
       m_DefaultActive: 0
-  - Parent: {fileID: 87036516}
+  - Parent: {fileID: 1176434757}
     UpperBound: 50
     Pool:
       Count: 144
