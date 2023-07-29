@@ -8,25 +8,8 @@ using UnityEngine.UIElements;
 public class Score : MonoBehaviour
 {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     [SerializeField] public int m_CollectableScore = 0;
+    [SerializeField] public int m_CollectedItems = 0;
 
     //public void AddScore(int score)
     //{
@@ -38,36 +21,18 @@ public class Score : MonoBehaviour
 
     //}
 
-    public void CollectableScoreFunc(int score)
+
+    public void AddScoreFunc(int score)
     {
-       
         m_CollectableScore += score;
-        Debug.Log(m_CollectableScore);
-        GameUI ui = UXManager.Instance.GameUI;
-        ui.GetComponent<GameUI>();
-        ui.CollectableScore(m_CollectableScore);
-
+        UXManager.Instance?.GameUI.UpdateTotalScore(score);
     }
 
-
-
-    // Start is called before the first frame update
-    void Start()
+    public void CollectedItem()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        m_CollectedItems++;
+        UXManager.Instance?.GameUI.CollectableCount(m_CollectedItems);
 
     }
 
-    private class m_TotalScore
-    {
-    }
-
-    private class DisplayingScore
-    {
-    }
 }
