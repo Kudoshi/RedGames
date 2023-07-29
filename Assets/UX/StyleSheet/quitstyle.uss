@@ -1,0 +1,24 @@
+.quitbutton__btn {
+}
+
+.quitbutton__btn:hover {
+    color: rgb(255, 249, 249);
+    background-color: rgb(0, 0, 0);
+    font-size: 90px;
+    -unity-font: url('project://database/Assets/Font/upheavtt.ttf?fileID=12800000&guid=1728847bb956b0f4285b7a428db635fd&type=3#upheavtt');
+    -unity-font-definition: url('project://database/Assets/Font/upheavtt%20SDF.asset?fileID=11400000&guid=89d196c40f6d56b4c90a3e51c4ac82e8&type=2#upheavtt SDF');
+    rotate: 0;
+    scale: 1.1 1.1;
+    border-left-width: 29px;
+    border-right-width: 29px;
+    border-top-width: 29px;
+    border-bottom-width: 29px;
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgba(255, 255, 255, 0);
+    border-top-left-radius: 21px;
+    border-bottom-left-radius: 21px;
+    border-top-right-radius: 21px;
+    border-bottom-right-radius: 21px;
+}
