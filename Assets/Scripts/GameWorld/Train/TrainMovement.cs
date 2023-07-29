@@ -32,6 +32,9 @@ public class TrainMovement : MonoBehaviour
 
     private void GetNewTrackTarget()
     {
+        // Set the old track as travelled
+        m_TargetTrack.GetComponent<Track>().SetTrackTravelled();
+
         m_CurrentTrackIndex = (m_CurrentTrackIndex + 1) % m_TrackPlacement.m_TracksPool.Count;
 
         // If no new track
