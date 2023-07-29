@@ -10,8 +10,8 @@ public static class GridUtil
     {
         // spatial hashing function for 2D
         return (int)(
-            ((uint)tilePosition.x * PRIME1) ^
-            ((uint)tilePosition.y * PRIME2) % (uint)maxIndex
+            (((uint)tilePosition.x * PRIME1) ^
+            ((uint)tilePosition.y * PRIME2)) % (uint)maxIndex
         );
     }
 }

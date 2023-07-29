@@ -21,7 +21,15 @@ public class GridWorld : MonoBehaviour
         if (!this.m_Center.Equals(currCenter))
         {
             this.m_Center = currCenter;
+
+            // set all as false
             this.m_TilePool.SetAllObjectActive(false);
+
+            for (int t = 0; t < this.m_TileConfigs.Length; t++)
+            {
+                this.m_TileConfigs[t].Pool.SetAllObjectActive(false);
+            }
+
             this.GenerateTileArea();
         }
     }
@@ -45,13 +53,21 @@ public class GridWorld : MonoBehaviour
         nextTile.gameObject.SetActive(true);
         nextTile.transform.position = new Vector3(position.x, 0.0f, position.y);
 
-        nextTile.Initialize(GridUtil.GetTileRandIndex(position, 9));
+        nextTile.Initialize(
+            GridUtil.GetTileRandIndex(position, 100),
+            this.m_TileConfigs
+        );
     }
 
     private void Start()
     {
         this.m_TilePool.Initialize(this.transform);
         this.m_HalfSize = this.m_Size / 2;
+
+        for (int t = 0; t < this.m_TileConfigs.Length; t++)
+        {
+            this.m_TileConfigs[t].Initialize();
+        }
 
         this.UpdateCenter(this.m_TargetTransform.position);
         this.GenerateTileArea();
