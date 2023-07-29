@@ -53,6 +53,13 @@ public class GridWorld : MonoBehaviour
         nextTile.gameObject.SetActive(true);
         nextTile.transform.position = new Vector3(position.x, 0.0f, position.y);
 
+        if (
+            (position.x < this.m_Size.x && position.x > -this.m_Size.x) &&
+            (position.y < this.m_Size.y && position.y > -this.m_Size.y)
+        ) {
+            return;
+        }
+
         nextTile.Initialize(
             GridUtil.GetTileRandIndex(position, 100),
             this.m_TileConfigs

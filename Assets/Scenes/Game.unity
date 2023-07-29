@@ -315,7 +315,15 @@ MonoBehaviour:
     UpperBound: 70
     Pool:
       Count: 100
-      m_Prefab: {fileID: 894746518496138753, guid: 523c89c114d631a48bfff198b3bdbc8a,
+      m_Prefab: {fileID: 8245024798994043591, guid: 47e4171d4afe48d45a4bbf407c5cf2b3,
+        type: 3}
+      m_DefaultActive: 0
+    Offset: {x: 0, y: 0, z: 0}
+  - Parent: {fileID: 1420545899}
+    UpperBound: 80
+    Pool:
+      Count: 100
+      m_Prefab: {fileID: 4137486168269956, guid: da41fd2967a439d409358c2214a5409e,
         type: 3}
       m_DefaultActive: 0
     Offset: {x: 0, y: -0.5, z: 0}
@@ -542,6 +550,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TileLayer.m_Bits
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117640610051688236, guid: 949329d7201781040b80410b93206278,
+        type: 3}
+      propertyPath: m_CollectibleLayer.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 2719602920974111368, guid: 949329d7201781040b80410b93206278,
         type: 3}
