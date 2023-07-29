@@ -493,21 +493,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1444973986161107317, guid: 949329d7201781040b80410b93206278,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444973986161107317, guid: 949329d7201781040b80410b93206278,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444973986161107317, guid: 949329d7201781040b80410b93206278,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1444973986161107317, guid: 949329d7201781040b80410b93206278,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -556,40 +541,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1823595190234869625, guid: 949329d7201781040b80410b93206278,
+    - target: {fileID: 2654961741193629067, guid: 949329d7201781040b80410b93206278,
         type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 2117640610051688236, guid: 949329d7201781040b80410b93206278,
-        type: 3}
-      propertyPath: TRACK_HEIGHT
-      value: 0.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 2117640610051688236, guid: 949329d7201781040b80410b93206278,
-        type: 3}
-      propertyPath: m_TileLayer.m_Bits
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2117640610051688236, guid: 949329d7201781040b80410b93206278,
-        type: 3}
-      propertyPath: m_CollectibleLayer.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 2451735726311631142, guid: 949329d7201781040b80410b93206278,
-        type: 3}
-      propertyPath: BreakRail
-      value: 
-      objectReference: {fileID: 8300000, guid: c5ee72b2ab2738d42ab8abe020de1199, type: 3}
     - target: {fileID: 2719602920974111368, guid: 949329d7201781040b80410b93206278,
         type: 3}
       propertyPath: m_Name
       value: Train
-      objectReference: {fileID: 0}
-    - target: {fileID: 7430837149410498877, guid: 949329d7201781040b80410b93206278,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

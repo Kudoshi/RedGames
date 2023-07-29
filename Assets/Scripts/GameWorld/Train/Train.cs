@@ -10,7 +10,6 @@ public class Train : SingletonMono<Train>
     public TrainAnimation TrainAnimation;
     public Score Score;
 
-
     public void TrainCrashed()
     {
         // Play train crash
