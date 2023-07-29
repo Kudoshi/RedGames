@@ -7,6 +7,7 @@ public class Train : SingletonMono<Train>
 {
     public TrackPlacement TrackPlacement;
     public TrainMovement TrainMovement;
+    public Score Score;
 
 
     public void TrainDerailed()

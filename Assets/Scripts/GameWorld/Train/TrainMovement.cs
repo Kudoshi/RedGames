@@ -7,6 +7,7 @@ public class TrainMovement : MonoBehaviour
     [SerializeField] private float m_StartingSpeed;
     [SerializeField] private float m_MaxSpeed;
     [SerializeField] private float m_SpeedMultiplier;
+    [SerializeField] private int m_TravelScore;
 
     private TrackPlacement m_TrackPlacement;
     private int m_CurrentTrackIndex; // Going to which track index
@@ -45,7 +46,7 @@ public class TrainMovement : MonoBehaviour
             m_TargetTrackPos = m_TargetTrack.transform.position;
             m_CurrentSpeed = m_CurrentSpeed < m_MaxSpeed ? m_CurrentSpeed * m_SpeedMultiplier : m_MaxSpeed;
             UXManager.Instance?.GameUI.UpdateSpeed(m_CurrentSpeed);
-
+            m_Train.Score.AddScoreFunc(m_TravelScore);
         }
 
         //Maintain same height
