@@ -51,6 +51,7 @@ public class TrackPlacement : MonoBehaviour
         track.position = new Vector3(0, TRACK_HEIGHT, zPos);
         Track trackScript = track.GetComponent<Track>();
         trackScript.DisplayTrack(TrackType.TRACK_STRAIGHT);
+        trackScript.SetTrackTravelled();
         track.gameObject.SetActive(true);
     }
 

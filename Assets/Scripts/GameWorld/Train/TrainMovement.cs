@@ -7,6 +7,7 @@ public class TrainMovement : MonoBehaviour
     [SerializeField] private float m_StartingSpeed;
     [SerializeField] private float m_MaxSpeed;
     [SerializeField] private float m_SpeedMultiplier;
+    [SerializeField] private int m_TravelScore;
 
     private TrackPlacement m_TrackPlacement;
     private int m_CurrentTrackIndex; // Going to which track index
@@ -26,11 +27,32 @@ public class TrainMovement : MonoBehaviour
     private void Start()
     {
         m_CurrentTrackIndex = m_TrackPlacement.StartingTrackIndex;
+        m_TargetTrack = m_TrackPlacement.m_TracksPool.Objects[m_CurrentTrackIndex];
         m_CurrentSpeed = m_StartingSpeed;
     }
 
+    public IEnumerator ChangeTrainSpeed(float speedChange, float changeDuration)
+    {
+        float time = changeDuration;
+        float speedTarget = m_CurrentSpeed + speedChange;
+        while (time > 0)
+        {
+            Mathf.Lerp(m_CurrentSpeed, speedTarget, 1f - (time / changeDuration));
+            time -= Time.deltaTime;
+
+            yield return null;
+        }
+
+       
+    }
+
+
+
     private void GetNewTrackTarget()
     {
+        // Set the old track as travelled
+        m_TargetTrack.GetComponent<Track>().SetTrackTravelled();
+
         m_CurrentTrackIndex = (m_CurrentTrackIndex + 1) % m_TrackPlacement.m_TracksPool.Count;
 
         // If no new track
@@ -45,7 +67,7 @@ public class TrainMovement : MonoBehaviour
             m_TargetTrackPos = m_TargetTrack.transform.position;
             m_CurrentSpeed = m_CurrentSpeed < m_MaxSpeed ? m_CurrentSpeed * m_SpeedMultiplier : m_MaxSpeed;
             UXManager.Instance?.GameUI.UpdateSpeed(m_CurrentSpeed);
-
+            m_Train.Score.AddScoreFunc(m_TravelScore);
         }
 
         //Maintain same height
