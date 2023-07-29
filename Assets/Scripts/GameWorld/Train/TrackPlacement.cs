@@ -133,7 +133,6 @@ public class TrackPlacement : MonoBehaviour
 
         newTrack.Rotate(new Vector3(0, rotationY, 0));
 
-        //Debug.Log(newTrack.rotation);
     }
 
 }
