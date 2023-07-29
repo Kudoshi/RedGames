@@ -15,8 +15,11 @@ public class TrainMovement : MonoBehaviour
     private float m_CurrentSpeed;
     private bool m_NoTrackLose;
 
+    private Train m_Train;
+
     private void Awake()
     {
+        m_Train = GetComponent<Train>();
         m_TrackPlacement = GetComponent<TrackPlacement>();
     }
 
@@ -56,7 +59,7 @@ public class TrainMovement : MonoBehaviour
         {
             if (m_NoTrackLose == true)
             {
-                Debug.Log("DEAD");
+                m_Train.TrainDerailed();
                 return;
             }
 

@@ -1,0 +1,24 @@
+.Button {
+    height: 149px;
+    width: 569px;
+    font-size: 80px;
+    border-top-left-radius: 32px;
+    border-bottom-left-radius: 32px;
+    border-top-right-radius: 32px;
+    border-bottom-right-radius: 32px;
+    background-color: rgb(0, 142, 133);
+    -unity-font-style: normal;
+    -unity-font: url('project://database/Assets/Font/Retro%20Gaming.ttf?fileID=12800000&guid=c41e0ad6a3bc8274d9d7ddd2223cf3af&type=3#Retro Gaming');
+    -unity-font-definition: url('project://database/Assets/Font/upheavtt%20SDF.asset?fileID=11400000&guid=89d196c40f6d56b4c90a3e51c4ac82e8&type=2#upheavtt SDF');
+    color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+}
+
+.Button:hover {
+    background-color: rgba(0, 0, 0, 0.66);
+}
+
+.Button:active {
+    background-color: rgba(253, 253, 253, 0.98);
+    color: rgb(0, 0, 0);
+}
