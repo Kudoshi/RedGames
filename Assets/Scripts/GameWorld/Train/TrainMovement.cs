@@ -31,6 +31,23 @@ public class TrainMovement : MonoBehaviour
         m_CurrentSpeed = m_StartingSpeed;
     }
 
+    public IEnumerator ChangeTrainSpeed(float speedChange, float changeDuration)
+    {
+        float time = changeDuration;
+        float speedTarget = m_CurrentSpeed + speedChange;
+        while (time > 0)
+        {
+            Mathf.Lerp(m_CurrentSpeed, speedTarget, 1f - (time / changeDuration));
+            time -= Time.deltaTime;
+
+            yield return null;
+        }
+
+       
+    }
+
+
+
     private void GetNewTrackTarget()
     {
         // Set the old track as travelled
