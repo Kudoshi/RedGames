@@ -7,13 +7,14 @@ public class Train : SingletonMono<Train>
 {
     public TrackPlacement TrackPlacement;
     public TrainMovement TrainMovement;
+    public TrainAnimation TrainAnimation;
     public Score Score;
 
 
     public void TrainDerailed()
     {
         //Train derailed;
-        Destroy(this);
+        TrainAnimation.PlayAnimation(TrainAnimation.OFFRAIL_ANIM);
         GameOver();
     }
 
