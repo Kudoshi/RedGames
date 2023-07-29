@@ -27,6 +27,7 @@ public class TrainMovement : MonoBehaviour
     private void Start()
     {
         m_CurrentTrackIndex = m_TrackPlacement.StartingTrackIndex;
+        m_TargetTrack = m_TrackPlacement.m_TracksPool.Objects[m_CurrentTrackIndex];
         m_CurrentSpeed = m_StartingSpeed;
     }
 
