@@ -13,7 +13,7 @@ public class TrackPlacement : MonoBehaviour
     public Pool<Transform> m_TracksPool = new Pool<Transform>();
 
     //[SerializeField] int m_MaxTrackPlacement = 3;
-    [SerializeField] private LayerMask m_TileLayer;
+    [SerializeField] private LayerMask m_CollectibleLayer;
     [SerializeField] private LayerMask m_TrainLayer;
 
     private int m_SpawnCheckHitLayer;
@@ -41,7 +41,7 @@ public class TrackPlacement : MonoBehaviour
         int allLayers = ~0;
 
         // Turn off the bits for the following
-        m_SpawnCheckHitLayer = allLayers & ~(m_TileLayer.value | m_TrainLayer.value);
+        m_SpawnCheckHitLayer = allLayers & ~(m_CollectibleLayer.value | m_TrainLayer.value);
 
     }
 
@@ -84,7 +84,7 @@ public class TrackPlacement : MonoBehaviour
 
         // Check if tile is empty
         Collider[] hitCollider = Physics.OverlapSphere(spawnPos, 0.45f, m_SpawnCheckHitLayer);
-        
+         
         if (hitCollider.Length > 0)
         {
             Debug.Log(hitCollider[0].name);
