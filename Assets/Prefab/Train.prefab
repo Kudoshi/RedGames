@@ -141,7 +141,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2351663025816405041}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.692}
+  m_LocalPosition: {x: 0, y: 0, z: 0.576}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3c34af0b3f48b4ba37d228f8fe03f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TRACK_HEIGHT: 0.5
+  TRACK_HEIGHT: 0.51
   m_TracksPool:
     Count: 100
     m_Prefab: {fileID: 310850309310842517, guid: b02e977dba6e6a1469b09ce06ec1ea65,
@@ -223,10 +223,10 @@ MonoBehaviour:
     m_DefaultActive: 0
   m_TileLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_TrainLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!114 &2119605354641603281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,7 +542,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6e61e76039b05ae4194cdb6315d89b76,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.094
+      value: -1.235
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6e61e76039b05ae4194cdb6315d89b76,
         type: 3}
