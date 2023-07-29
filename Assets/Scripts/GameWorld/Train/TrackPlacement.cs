@@ -13,7 +13,7 @@ public class TrackPlacement : MonoBehaviour
 
     public Pool<Transform> m_TracksPool = new Pool<Transform>();
 
-    [SerializeField] int m_MaxTrackPlacement = 3;
+    //[SerializeField] int m_MaxTrackPlacement = 3;
     [SerializeField] private LayerMask m_TileLayer;
 
     [Header("Track Prefab")]

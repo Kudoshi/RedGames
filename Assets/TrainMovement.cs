@@ -5,6 +5,7 @@ using UnityEngine;
 public class TrainMovement : MonoBehaviour
 {
     [SerializeField] private float m_StartingSpeed;
+    [SerializeField] private float m_MaxSpeed;
     [SerializeField] private float m_SpeedMultiplier;
 
     private TrackPlacement m_TrackPlacement;
@@ -27,7 +28,7 @@ public class TrainMovement : MonoBehaviour
         if (transform.position == m_TrackPlacement.m_TracksPool.Objects[m_CurrentTrackIndex].position)
         {
             m_CurrentTrackIndex = (m_CurrentTrackIndex + 1) % m_TrackPlacement.m_TracksPool.Count;
-            m_CurrentSpeed *= m_SpeedMultiplier;
+            m_CurrentSpeed = m_CurrentSpeed < m_MaxSpeed? m_CurrentSpeed * m_SpeedMultiplier : m_MaxSpeed;
         }
 
         Transform targetTrack = m_TrackPlacement.m_TracksPool.Objects[m_CurrentTrackIndex];
@@ -45,10 +46,5 @@ public class TrainMovement : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, m_CurrentSpeed * Time.deltaTime);
         }
 
-
-
-       
-
-        Debug.Log(m_TrackPlacement.m_TracksPool.GetCurrentObject().position);
     }
 }
