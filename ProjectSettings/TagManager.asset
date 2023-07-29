@@ -4,18 +4,18 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Point
   - Train
+  - Point
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Obstacles
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Collectible
+  - Train
+  - Track
   - 
   - 
   - 
