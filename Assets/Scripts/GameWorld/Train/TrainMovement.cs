@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TrainMovement : MonoBehaviour
@@ -33,8 +32,7 @@ public class TrainMovement : MonoBehaviour
 
     public void ChangeTrainSpeed(float speedChange, float changeDuration)
     {
-        float speedTarget = m_CurrentSpeed + speedChange; 
-
+        float speedTarget = m_CurrentSpeed + speedChange;
         StartCoroutine(GradualChangeSpeed(speedTarget, changeDuration));
     }
 
@@ -44,15 +42,14 @@ public class TrainMovement : MonoBehaviour
 
         while (time >= 0)
         {
-           m_CurrentSpeed= Mathf.Lerp(m_CurrentSpeed, speedTarget, 1f - (time / changeDuration));
+            m_CurrentSpeed = Mathf.Lerp(m_CurrentSpeed, speedTarget, 1f - (time / changeDuration));
             time -= Time.deltaTime;
 
-            yield return null; 
+            yield return null;
         }
     }
 
-
-        private void GetNewTrackTarget()
+    private void GetNewTrackTarget()
     {
         // Set the old track as travelled
         m_TargetTrack.GetComponent<Track>().SetTrackTravelled();
@@ -92,8 +89,6 @@ public class TrainMovement : MonoBehaviour
             GetNewTrackTarget();
         }
 
-
-        float currentSpeed = m_CurrentSpeed;
         // Rotation
         float angleDirection = Vector3.Angle(transform.forward, m_TargetTrack.forward);
 
@@ -101,15 +96,11 @@ public class TrainMovement : MonoBehaviour
         {
             // Calculate the rotation needed to look at the target's forward direction
             Quaternion targetRotation = Quaternion.LookRotation(m_TargetTrack.forward, transform.up);
-            currentSpeed *= 0.3f;
 
             // Smoothly rotate towards the target rotation
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, m_CurrentSpeed * Time.deltaTime);
         }
-        
+
         transform.position = Vector3.MoveTowards(transform.position, m_TargetTrackPos, m_CurrentSpeed * Time.deltaTime);
-
-
-
     }
 }
