@@ -14,9 +14,9 @@
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-self: stretch; justify-content: space-around;">
-            <ui:Button text="Rail" display-tooltip-when-elided="true" name="left_btn" class="custombutton__btn" />
-            <ui:Button text="Rail" display-tooltip-when-elided="true" name="straight_btn" class="custombutton__btn" />
-            <ui:Button text="Rail" display-tooltip-when-elided="true" name="right_btn" class="custombutton__btn" />
+            <ui:Button display-tooltip-when-elided="true" name="left_btn" class="custombutton__btn" style="background-image: url(&apos;project://database/Assets/Texture/media_result_20230730_b0205072-404c-4329-b928-50cbd70770cc.png?fileID=2800000&amp;guid=58ac6ca33b7c7ea448f9ae861ea9fb8d&amp;type=3#media_result_20230730_b0205072-404c-4329-b928-50cbd70770cc&apos;);" />
+            <ui:Button display-tooltip-when-elided="true" name="straight_btn" class="custombutton__btn" style="background-image: url(&apos;project://database/Assets/Texture/media_result_20230730_98430b6e-d842-4be7-a93c-3489c22334a2.png?fileID=2800000&amp;guid=c308c4ab91718254b98d29c6456bb500&amp;type=3#media_result_20230730_98430b6e-d842-4be7-a93c-3489c22334a2&apos;);" />
+            <ui:Button display-tooltip-when-elided="true" name="right_btn" class="custombutton__btn" style="background-image: url(&apos;project://database/Assets/Texture/media_result_20230730_f3dbc8dd-be48-4f63-9fcc-4bbb810a567b.png?fileID=2800000&amp;guid=a9eb8be70e8a482438c4938615af6d0e&amp;type=3#media_result_20230730_f3dbc8dd-be48-4f63-9fcc-4bbb810a567b&apos;);" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
