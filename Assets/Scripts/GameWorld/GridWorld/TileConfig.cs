@@ -7,7 +7,7 @@ public struct TileConfig
     [Range(0, 100)] public int UpperBound;
     public Transform TargetObject;
     public Vector3 Offset;
-    public Transform[] Objects;
+    [HideInInspector] public Transform[] Objects;
 
     public void Initialize(int2 size, Transform parent)
     {
