@@ -14,10 +14,15 @@ public class GameOverScreen : UXBehaviour
     public Button m_RestartButton;
     public Button m_QuitButton;
 
+    private void Awake()
+    {
+        InitializeDoc();
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        InitializeDoc();
         m_RestartButton = m_Root.Q<Button>("restart-btn");
         m_QuitButton = m_Root.Q<Button>("end-btn");
         m_RestartButton.clicked += () => RestartGame();
@@ -77,7 +82,8 @@ public class GameOverScreen : UXBehaviour
 
     private void EndGame()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
+        Scene scene = SceneManager.GetActiveScene(); 
+        SceneManager.LoadScene(scene.name);
         UXManager.Instance.SoundManager.PlayOneShot("UIButton");
     }
 }

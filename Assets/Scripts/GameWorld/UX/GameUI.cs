@@ -18,6 +18,12 @@ public class GameUI : UXBehaviour
     
     private int m_CurrScore;
 
+    private void Awake()
+    {
+        InitializeDoc();
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {

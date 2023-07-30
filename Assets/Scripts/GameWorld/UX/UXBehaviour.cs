@@ -12,4 +12,9 @@ public abstract class UXBehaviour : MonoBehaviour
         this.m_Document = this.GetComponent<UIDocument>();
         this.m_Root = this.m_Document.rootVisualElement;
     }
+
+    public void TurnOnOffUX(bool onOff)
+    {
+        this.m_Document.enabled = onOff;
+    }
 }

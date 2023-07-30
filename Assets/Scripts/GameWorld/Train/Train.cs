@@ -12,6 +12,25 @@ public class Train : SingletonMono<Train>
     public Score Score;
     [SerializeField] private Shaker m_CamShake;
     [SerializeField] private ShakePreset m_HitShakePreset;
+    [SerializeField] private GameObject m_SmokeObject;
+
+    private void Start()
+    {
+        StopTrain();
+    }
+    private void StopTrain()
+    {
+        TrackPlacement.enabled = false;
+        TrainMovement.enabled = false;
+        m_SmokeObject.SetActive(false);
+    }
+
+    public void StartTrain()
+    {
+        TrackPlacement.enabled = true;
+        TrainMovement.enabled = true;
+        m_SmokeObject.SetActive(true);
+    }
 
     public void TrainCrashed()
     {
