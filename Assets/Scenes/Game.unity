@@ -511,6 +511,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2117640610051688236, guid: 949329d7201781040b80410b93206278,
+        type: 3}
+      propertyPath: m_PlacementPfxPool.m_Prefab
+      value: 
+      objectReference: {fileID: 7906395237020715642, guid: b411726adc631a741be3eda43b9fc340,
+        type: 3}
     - target: {fileID: 2719602920974111368, guid: 949329d7201781040b80410b93206278,
         type: 3}
       propertyPath: m_Name
