@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1732849804532019422}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4269478707444772973}
   - component: {fileID: 810371407538865402}
+  - component: {fileID: 193875928648659505}
   m_Layer: 6
   m_Name: Collectible_Airplane
   m_TagString: Point
@@ -109,13 +110,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6856178467652532314}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.37, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6006807038210064331}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &810371407538865402
 BoxCollider:
@@ -138,6 +139,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &193875928648659505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6856178467652532314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee14869cb6b3581409a3dd914bf6a045, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CollectableScore: 30
+  m_CollectPfx:
+    Count: 1
+    m_Prefab: {fileID: 6155324218059016487, guid: e46ee8cb323bca646b870edd76eaf713,
+      type: 3}
+    m_DefaultActive: 1
 --- !u!1001 &3179755842623843665
 PrefabInstance:
   m_ObjectHideFlags: 0
