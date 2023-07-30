@@ -287,7 +287,12 @@ MonoBehaviour:
     x: 0
     y: 0
   m_TileConfigs:
-  - UpperBound: 84
+  - UpperBound: 60
+    TargetObject: {fileID: 4269478707444772973, guid: 68c8c284faed21348bd2f7f7e74cd68a,
+      type: 3}
+    Offset: {x: 0, y: 1, z: 0}
+    Objects: []
+  - UpperBound: 65
     TargetObject: {fileID: 4269478707444772973, guid: 68c8c284faed21348bd2f7f7e74cd68a,
       type: 3}
     Offset: {x: 0, y: 1, z: 0}

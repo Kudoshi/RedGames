@@ -1,18 +1,21 @@
 .custombutton__btn {
-    margin-top: 1000px;
-    margin-bottom: 80px;
-    padding-left: 110px;
-    padding-right: 110px;
-    font-size: 55px;
-    border-top-width: 0;
-    padding-top: 130px;
-    border-left-color: rgba(0, 0, 0, 0);
-    border-right-color: rgba(0, 0, 0, 0);
-    border-top-color: rgba(0, 0, 0, 0);
-    border-bottom-color: rgba(0, 0, 0, 0);
-    opacity: 1;
-    color: rgb(27, 27, 27);
-    background-color: rgba(239, 241, 237, 0.3);
+    border-top-width: 6px;
+    border-left-color: rgba(255, 255, 255, 0.6);
+    border-right-color: rgba(255, 255, 255, 0.6);
+    border-top-color: rgba(255, 255, 255, 0.6);
+    border-bottom-color: rgba(255, 255, 255, 0.6);
+    width: 184px;
+    height: 312px;
+    border-top-left-radius: 21px;
+    border-bottom-left-radius: 21px;
+    border-top-right-radius: 21px;
+    border-bottom-right-radius: 21px;
+    border-left-width: 6px;
+    border-right-width: 6px;
+    border-bottom-width: 6px;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out-cubic;
 }
 
 .custombutton__btn:active {
