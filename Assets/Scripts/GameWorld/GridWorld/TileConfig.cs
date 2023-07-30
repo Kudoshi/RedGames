@@ -1,16 +1,26 @@
 using UnityEngine;
-using GameWorld.Util;
+using Unity.Mathematics;
 
 [System.Serializable]
 public struct TileConfig
 {
-    public Transform Parent;
     [Range(0, 100)] public int UpperBound;
-    public Pool<Transform> Pool;
+    public Transform TargetObject;
     public Vector3 Offset;
+    public Transform[] Objects;
 
-    public void Initialize()
+    public void Initialize(int2 size, Transform parent)
     {
-        this.Pool.Initialize(this.Parent);
+        int objectCount = size.x * size.y;
+        this.Objects = new Transform[objectCount];
+
+        for (int o = 0; o < objectCount; o++)
+        {
+            this.Objects[o] = Object.Instantiate(
+                TargetObject, parent
+            );
+
+            this.Objects[o].gameObject.SetActive(false);
+        }
     }
 }

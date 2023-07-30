@@ -21,7 +21,7 @@ public static class GridUtil
     public static void UpdateTileAvailability(
         int2 center, int2 size,
         ref List<int> unusedTileIndices,
-        in Tile[] tiles
+        in Transform[] tiles
     ) {
         // clear list before adding in tile indices
         unusedTileIndices.Clear();
@@ -32,7 +32,7 @@ public static class GridUtil
             for (int x = 0; x < size.x; x++)
             {
                 int tileIndex = GetTileIndex(x, y, size);
-                Tile tile = tiles[tileIndex];
+                Transform tile = tiles[tileIndex];
                 int2 position = (int2)mathxx.flatten_3d(
                     tile.transform.position
                 );
@@ -48,10 +48,13 @@ public static class GridUtil
     public static void UpdateTiles(
         int2 center, int2 size, LayerMask tileLayer,
         in List<int> unusedTileIndices,
-        in Tile[] tiles
+        in Transform[] tiles,
+        in List<int2> refreshTiles
     ) {
         int index = 0;
         int2 halfSize = size / 2;
+
+        refreshTiles.Clear();
 
         Collider[] colliders = new Collider[1];
 
@@ -69,12 +72,65 @@ public static class GridUtil
                 if (colliders[0] == null)
                 {
                     int tileIndex  = unusedTileIndices[index++];
-                    Tile tile = tiles[tileIndex];
+                    Transform tile = tiles[tileIndex];
 
                     tile.transform.position = position3D;
+
+                    refreshTiles.Add(new int2(x, y));
                 }
 
                 colliders[0] = null;
+            }
+        }
+    }
+
+    public static void UpdateTileConfig(
+        int2 center, int2 size,
+        in TileConfig[] tileConfigs,
+        in List<int2> refreshedTiles,
+        in List<int> unusedTileIndices
+    ) {
+        int index = 0;
+        int2 halfSize = size / 2;
+
+        foreach (int2 tile in refreshedTiles)
+        {
+            int2 position = GetTilePosition(
+                tile.x, tile.y, halfSize, center
+            );
+            float3 position3D = mathxx.unflatten_2d(position);
+
+            // do not place any objects if we are near spawning location
+            if (
+                math.all(position <= halfSize) &&
+                math.all(position >= -halfSize)
+            ) {
+                continue;
+            }
+
+            int randIndex = GetTileRandIndex(position, 100);
+
+            int configIndex = -1;
+            for (int t = 0; t < tileConfigs.Length; t++)
+            {
+                if (randIndex <= tileConfigs[t].UpperBound)
+                {
+                    break;
+                }
+                configIndex = t;
+            }
+
+            if (configIndex != -1)
+            {
+                TileConfig config = tileConfigs[configIndex];
+
+                int tileIndex = unusedTileIndices[index++];
+                Transform trans = config.Objects[tileIndex];
+
+                float3 finalPos = position3D + (float3)config.Offset;
+
+                trans.position = finalPos;
+                trans.gameObject.SetActive(true);
             }
         }
     }

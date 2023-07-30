@@ -1,113 +1,93 @@
+using System.Collections.Generic;
 using UnityEngine;
-using GameWorld.Util;
 using Unity.Mathematics;
+using GameWorld.Util;
 
 public class GridWorld : MonoBehaviour
 {
-    [SerializeField] private Pool<Tile> m_TilePool;
+    [SerializeField] private Transform m_TilePrefab;
+    [SerializeField] private LayerMask m_TileLayer;
+    [SerializeField] private LayerMask m_CollectableLayer;
     [SerializeField] private int2 m_Size;
-
-    [SerializeField] private int2 m_PrevCenter;
-    [SerializeField] private int2 m_CurrCenter;
     [SerializeField] private Transform m_TargetTransform;
-
-    [SerializeField] private LayerMask m_TileMask;
+    [SerializeField] private int2 m_Center;
 
     [SerializeField] private TileConfig[] m_TileConfigs;
 
-    private int2 m_HalfSize;
+    private Transform[] m_Tiles;
+    private List<int> m_UnusedTileIndices;
+    private List<int2> m_RefreshTiles;
 
-    private void UpdateCenter(Vector3 center)
+    public int2 Size => this.m_Size;
+    public int2 HalfSize => this.m_Size / 2;
+
+    private void Start()
     {
-        int2 currCenter = new int2((int)center.x, (int)center.z);
+        int tileCount = this.m_Size.x * this.m_Size.y;
+        this.m_Tiles = new Transform[tileCount];
+        this.m_Center = (int2)mathxx.flatten_3d(this.m_TargetTransform.position);
 
-        // if target transform move out of range, regenerate tiles
-        if (!this.m_CurrCenter.Equals(currCenter))
-        {
-            this.m_PrevCenter = this.m_CurrCenter;
-            this.m_CurrCenter = currCenter;
-
-            // set all as false
-            // this.m_TilePool.SetAllObjectActive(false);
-
-            // for (int t = 0; t < this.m_TileConfigs.Length; t++)
-            // {
-            //     this.m_TileConfigs[t].Pool.SetAllObjectActive(false);
-            // }
-
-            this.GenerateTileArea();
-        }
-    }
-
-    private void GenerateTileArea(bool checkTileInScreen = true)
-    {
+        // initialize tiles on xy locations based on target transform as the center
         for (int y = 0; y < this.m_Size.y; y++)
         {
             for (int x = 0; x < this.m_Size.x; x++)
             {
-                int2 position = new int2(x, y);
-                position = position - this.m_HalfSize + this.m_CurrCenter;
+                int tileIndex = GridUtil.GetTileIndex(x, y, this.m_Size);
+                int2 position = GridUtil.GetTilePosition(x, y, this.HalfSize, this.m_Center);
 
-                if (this.CheckTileInScreen(position) && checkTileInScreen)
-                {
-                    continue;
-                }
-
-                // Collider[] colliders = Physics.OverlapSphere(
-                //     new Vector3(position.x, 0.0f, position.y), 1.0f,
-                    
-                // )
-
-                this.SpawnTile(position);
+                this.m_Tiles[tileIndex] = Instantiate(
+                    this.m_TilePrefab,
+                    mathxx.unflatten_2d(position),
+                    Quaternion.identity,
+                    this.transform
+                );
             }
         }
-    }
 
-    private void SpawnTile(int2 position)
-    {
-        Tile nextTile = this.m_TilePool.GetNextObject();
-        nextTile.gameObject.SetActive(true);
-        nextTile.transform.position = new Vector3(position.x, 0.0f, position.y);
-
-        if (
-            math.all(position < this.m_Size) &&
-            math.all(position > -this.m_Size)
-        ) {
-            return;
-        }
-
-        nextTile.Initialize(
-            GridUtil.GetTileRandIndex(position, 100),
-            this.m_TileConfigs
-        );
-    }
-
-    private bool CheckTileInScreen(int2 position)
-    {
-        int2 maxBound = this.m_PrevCenter + this.m_HalfSize;
-        int2 minBound = this.m_PrevCenter - this.m_HalfSize;
-
-        return math.all(position >= minBound) && math.all(position <= maxBound);
-    }
-
-    private void Start()
-    {
-        this.m_TilePool.Initialize(this.transform);
-        this.m_HalfSize = this.m_Size / 2;
-
+        // initialize tile configs
         for (int t = 0; t < this.m_TileConfigs.Length; t++)
         {
-            this.m_TileConfigs[t].Initialize();
+            this.m_TileConfigs[t].Initialize(this.m_Size, this.transform);
         }
 
-        this.UpdateCenter(this.m_TargetTransform.position);
-        this.GenerateTileArea(false);
+        // initialize with some predicted initial capacity
+        this.m_UnusedTileIndices = new List<int>(this.m_Size.x + this.m_Size.y);
+        this.m_RefreshTiles = new List<int2>(this.m_Size.x + this.m_Size.y);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        Vector3 position = this.m_TargetTransform.position;
-        this.UpdateCenter(position);
+        int2 currCenter = (int2)mathxx.flatten_3d(
+            this.m_TargetTransform.position
+        );
+
+        int2 centerDiff = currCenter - this.m_Center;
+        if (math.lengthsq(centerDiff) > 0)
+        {
+            // center has changed update tiles
+
+            GridUtil.UpdateTileAvailability(
+                currCenter, this.m_Size,
+                ref this.m_UnusedTileIndices,
+                in this.m_Tiles
+            );
+
+            GridUtil.UpdateTiles(
+                currCenter, this.m_Size, this.m_TileLayer,
+                in this.m_UnusedTileIndices,
+                in this.m_Tiles,
+                in this.m_RefreshTiles
+            );
+
+            GridUtil.UpdateTileConfig(
+                currCenter, this.m_Size,
+                in this.m_TileConfigs,
+                in this.m_RefreshTiles,
+                in this.m_UnusedTileIndices
+            );
+
+            this.m_Center = currCenter;
+        }
     }
 
     private void OnValidate()
@@ -121,10 +101,5 @@ public class GridWorld : MonoBehaviour
               this.m_TileConfigs[t - 1].UpperBound
             );
         }
-    }
-
-    private void OnDestroy()
-    {
-        this.m_TilePool.Dispose();
     }
 }

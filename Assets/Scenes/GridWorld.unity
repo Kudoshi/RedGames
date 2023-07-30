@@ -260,37 +260,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!1 &87036515
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 87036516}
-  m_Layer: 0
-  m_Name: RedSphereParent
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &87036516
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 87036515}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 285526145}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &226726684
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,92 +378,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1 &285526144
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 285526145}
-  - component: {fileID: 285526146}
-  m_Layer: 0
-  m_Name: GridWorld
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &285526145
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 285526144}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 87036516}
-  - {fileID: 1176434757}
-  - {fileID: 2109123956}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &285526146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 285526144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c44544b2e9a473428018e32fcd84c72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TilePool:
-    Count: 144
-    m_Prefab: {fileID: 1793806250}
-    m_DefaultActive: 0
-  m_Size:
-    x: 9
-    y: 16
-  m_PrevCenter:
-    x: 0
-    y: 0
-  m_CurrCenter:
-    x: 0
-    y: 0
-  m_TargetTransform: {fileID: 654536111}
-  m_TileMask:
-    serializedVersion: 2
-    m_Bits: 0
-  m_TileConfigs:
-  - Parent: {fileID: 87036516}
-    UpperBound: 60
-    Pool:
-      Count: 144
-      m_Prefab: {fileID: 1217625264}
-      m_DefaultActive: 0
-    Offset: {x: 0, y: 0, z: 0}
-  - Parent: {fileID: 1176434757}
-    UpperBound: 70
-    Pool:
-      Count: 144
-      m_Prefab: {fileID: 473422961}
-      m_DefaultActive: 0
-    Offset: {x: 0, y: 0, z: 0}
-  - Parent: {fileID: 2109123956}
-    UpperBound: 80
-    Pool:
-      Count: 144
-      m_Prefab: {fileID: 659791226}
-      m_DefaultActive: 0
-    Offset: {x: 0, y: 0, z: 0}
 --- !u!1 &473422957
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,7 +459,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &654536107
 GameObject:
@@ -589,7 +472,6 @@ GameObject:
   - component: {fileID: 654536111}
   - component: {fileID: 654536110}
   - component: {fileID: 654536109}
-  - component: {fileID: 654536108}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -597,27 +479,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &654536108
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 654536107}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &654536109
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -681,7 +542,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &659791223
 GameObject:
@@ -764,38 +625,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1176434756
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1176434757}
-  m_Layer: 0
-  m_Name: BlueSphereParent
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1176434757
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1176434756}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 285526145}
-  m_RootOrder: -1
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1217625261
 GameObject:
@@ -961,7 +791,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1513219178
 GameObject:
@@ -1109,8 +939,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TrainAndTrackLayer:
-    serializedVersion: 2
     m_Bits: 0
+  m_Index: 0
 --- !u!1 &1794287700
 GameObject:
   m_ObjectHideFlags: 0
@@ -1214,7 +1044,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2030827163
 GameObject:
@@ -1227,7 +1057,7 @@ GameObject:
   - component: {fileID: 2030827165}
   - component: {fileID: 2030827166}
   m_Layer: 0
-  m_Name: GridWorldProto
+  m_Name: GridWorld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1246,7 +1076,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2030827166
 MonoBehaviour:
@@ -1260,7 +1090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb98914547422341863c89f1cf9e239, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TilePrefab: {fileID: 1555880334408152276, guid: e7e285ce7fa22694dab348bede8854fd,
+  m_TilePrefab: {fileID: 8696388224633396665, guid: e7e285ce7fa22694dab348bede8854fd,
     type: 3}
   m_TileLayer:
     serializedVersion: 2
@@ -1272,34 +1102,16 @@ MonoBehaviour:
   m_Center:
     x: 0
     y: 0
---- !u!1 &2109123955
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2109123956}
-  m_Layer: 0
-  m_Name: GreenSphereParent
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2109123956
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2109123955}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 285526145}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_TileConfigs:
+  - UpperBound: 60
+    TargetObject: {fileID: 1217625264}
+    Offset: {x: 0, y: 1, z: 0}
+    Objects: []
+  - UpperBound: 70
+    TargetObject: {fileID: 659791226}
+    Offset: {x: 0, y: 1, z: 0}
+    Objects: []
+  - UpperBound: 80
+    TargetObject: {fileID: 473422961}
+    Offset: {x: 0, y: 1, z: 0}
+    Objects: []
