@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -287,13 +287,38 @@ MonoBehaviour:
     x: 0
     y: 0
   m_TileConfigs:
-  - UpperBound: 60
+  - UpperBound: 70
+    TargetObject: {fileID: 5809635237150233533, guid: f7e8a0bd97d6e754297312eb2dd06987,
+      type: 3}
+    Offset: {x: 0, y: 1, z: 0}
+    Objects: []
+  - UpperBound: 74
     TargetObject: {fileID: 4269478707444772973, guid: 68c8c284faed21348bd2f7f7e74cd68a,
       type: 3}
     Offset: {x: 0, y: 1, z: 0}
     Objects: []
-  - UpperBound: 65
-    TargetObject: {fileID: 4269478707444772973, guid: 68c8c284faed21348bd2f7f7e74cd68a,
+  - UpperBound: 77
+    TargetObject: {fileID: 7314086687541254057, guid: 3bb15f08e29218a488037411e1cb66f8,
+      type: 3}
+    Offset: {x: 0, y: 1, z: 0}
+    Objects: []
+  - UpperBound: 79
+    TargetObject: {fileID: 6321167535453480986, guid: e0d5d4fa1a7b7bf43ba12be577b05fa5,
+      type: 3}
+    Offset: {x: 0, y: 1, z: 0}
+    Objects: []
+  - UpperBound: 83
+    TargetObject: {fileID: 4334696594685364071, guid: 787c3d83ec5cdd04c8524cb8ff91e797,
+      type: 3}
+    Offset: {x: 0, y: 1, z: 0}
+    Objects: []
+  - UpperBound: 90
+    TargetObject: {fileID: 4133024124776080370, guid: ea1c029106fb77042833eb90a101ec6d,
+      type: 3}
+    Offset: {x: 0, y: 1, z: 0}
+    Objects: []
+  - UpperBound: 95
+    TargetObject: {fileID: 531087023535014752, guid: 27efa3b53c77f24408c94e4f2ceab1f5,
       type: 3}
     Offset: {x: 0, y: 1, z: 0}
     Objects: []

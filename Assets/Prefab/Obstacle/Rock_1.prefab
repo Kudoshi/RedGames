@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6321167535453480986}
   - component: {fileID: 284219168638364889}
   - component: {fileID: 8949434332951647162}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Rock_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 5953962911473863643}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &284219168638364889
 BoxCollider:
@@ -67,6 +67,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e367620f34184240b181d8b99ad1d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_CrashPfx: {fileID: 0}
+  m_CrashSfxName: 
 --- !u!1001 &5953962911474258267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78,6 +80,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 71bb44319f15e0741846c4fad009f013, type: 3}
       propertyPath: m_Name
       value: Rock_6
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 71bb44319f15e0741846c4fad009f013, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 71bb44319f15e0741846c4fad009f013, type: 3}
       propertyPath: m_RootOrder
