@@ -7,7 +7,6 @@ public class GridWorld : MonoBehaviour
 {
     [SerializeField] private Transform m_TilePrefab;
     [SerializeField] private LayerMask m_TileLayer;
-    [SerializeField] private LayerMask m_CollectableLayer;
     [SerializeField] private int2 m_Size;
     [SerializeField] private Transform m_TargetTransform;
     [SerializeField] private int2 m_Center;
