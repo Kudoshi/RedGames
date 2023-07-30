@@ -34,7 +34,8 @@ public class GameOverScreen : UXBehaviour
         m_HighScore = m_Root.Q<Label>("highest-score");
 
     }
-    
+
+
     public void DisplayEndGame(int finalScore, int totalCollectible)
     {
         int bestScore = GetHighScore();

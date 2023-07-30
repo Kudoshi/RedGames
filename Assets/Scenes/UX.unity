@@ -393,6 +393,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonPress: {fileID: 8300000, guid: 7507b3762b98a304bbca13e8c2385805, type: 3}
+  m_PopSize: 20
+  m_PopSpeed: 20
 --- !u!1 &675914028
 GameObject:
   m_ObjectHideFlags: 0
