@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CrashPfx: {fileID: 1253134076340819338}
+  m_CrashSfxName: HitWood
 --- !u!1001 &462631535944392204
 PrefabInstance:
   m_ObjectHideFlags: 0

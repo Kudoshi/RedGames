@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CrashPfx: {fileID: 5700866781581352738}
+  m_CrashSfxName: HitStone
 --- !u!1001 &6346154624685937828
 PrefabInstance:
   m_ObjectHideFlags: 0
