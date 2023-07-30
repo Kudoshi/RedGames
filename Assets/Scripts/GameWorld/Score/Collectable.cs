@@ -16,6 +16,7 @@ public class Collectable : MonoBehaviour
         if (collider.gameObject.tag == "Train")
         {
             // Destroy(gameObject);
+            UXManager.Instance.SoundManager.PlayOneShot("Collectable");
             Score gameScore = collider.gameObject.GetComponent<Score>();
             gameScore.CollectedItem();
             gameScore.AddScoreFunc(m_CollectableScore);
