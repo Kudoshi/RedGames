@@ -27,7 +27,9 @@ public class MenuUI : UXBehaviour
 
     public void StartButton()
     {
+
         UXManager.Instance.AudioSource.PlayOneShot(ButtonPress);
+
     }
 
     public void QuitButton()

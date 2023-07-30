@@ -16,6 +16,8 @@ public class Train : SingletonMono<Train>
     public void TrainCrashed()
     {
         // Play train crash
+        //Play audio of crash obstacle
+        UXManager.Instance.SoundManager.PlayOneShot("HitStone");
         TrainAnimation.PlayAnimation(TrainAnimation.OFFRAIL_ANIM);
         m_CamShake.Shake(m_HitShakePreset);
         StartCoroutine(GameOver());
@@ -24,6 +26,8 @@ public class Train : SingletonMono<Train>
     public void TrainDerailed()
     {
         //Train derailed;
+        //Play Train derailed audio
+        UXManager.Instance.SoundManager.PlayOneShot("OutofRail");
         TrainAnimation.PlayAnimation(TrainAnimation.OFFRAIL_ANIM);
         m_CamShake.Shake(m_HitShakePreset);
 

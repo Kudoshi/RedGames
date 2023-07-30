@@ -16,6 +16,7 @@ public class Obstacle : MonoBehaviour
     {
         if (collision.collider.CompareTag("Train"))
         {
+            
             m_CrashPfx.SetActive(true);
             m_Collider.enabled = false;
 

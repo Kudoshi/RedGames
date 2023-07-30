@@ -18,3 +18,28 @@ MonoBehaviour:
     Volume: 1
     SpatialBlend: 0
     Pitch: 1
+  - SoundName: HitStone
+    Clip: {fileID: 8300000, guid: c5ee72b2ab2738d42ab8abe020de1199, type: 3}
+    Volume: 1
+    SpatialBlend: 0
+    Pitch: 1
+  - SoundName: RailPlaceSound
+    Clip: {fileID: 8300000, guid: edc2f1dae1d1f3e408055d6ded4ffa66, type: 3}
+    Volume: 1
+    SpatialBlend: 0
+    Pitch: 1
+  - SoundName: MuckBucket
+    Clip: {fileID: 8300000, guid: d0fac8e2507bf1e47a417b58abf3d1c8, type: 3}
+    Volume: 1
+    SpatialBlend: 0
+    Pitch: 1
+  - SoundName: OutofRail
+    Clip: {fileID: 8300000, guid: 176e9c5ab62d8af48b0af8ed430964a3, type: 3}
+    Volume: 1
+    SpatialBlend: 0
+    Pitch: 1
+  - SoundName: UIButton
+    Clip: {fileID: 8300000, guid: 7507b3762b98a304bbca13e8c2385805, type: 3}
+    Volume: 1
+    SpatialBlend: 0
+    Pitch: 1
