@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee14869cb6b3581409a3dd914bf6a045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CollectableScore: 30
+  m_CollectableScore: 70
   m_CollectPfx:
     Count: 1
     m_Prefab: {fileID: 5941554692376289680, guid: a0da7376e8a96cf44a413f64d77e2e5a,

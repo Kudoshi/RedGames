@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee14869cb6b3581409a3dd914bf6a045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CollectableScore: 30
+  m_CollectableScore: 20
   m_CollectPfx:
     Count: 1
     m_Prefab: {fileID: 6155324218059016487, guid: e46ee8cb323bca646b870edd76eaf713,
