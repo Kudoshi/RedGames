@@ -12,7 +12,6 @@ public class GridWorldProto : MonoBehaviour
     [SerializeField] private int2 m_Center;
 
     private Tile[] m_Tiles;
-    private bool[] m_TileAvailabilities;
     private List<int> m_UnusedTileIndices;
 
     public int2 Size => this.m_Size;

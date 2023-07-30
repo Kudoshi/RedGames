@@ -72,7 +72,6 @@ public static class GridUtil
                     Tile tile = tiles[tileIndex];
 
                     tile.transform.position = position3D;
-                    // tile.Initialize();
                 }
 
                 colliders[0] = null;
