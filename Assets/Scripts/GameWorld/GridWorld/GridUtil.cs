@@ -39,7 +39,6 @@ public static class GridUtil
 
                 if (!TileInScreen(position, center, size))
                 {
-                    Debug.Log(tileIndex);
                     unusedTileIndices.Add(tileIndex);
                 }
             }
