@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: CrashShake
   m_EditorClassIdentifier: 
   shakeType: 0
-  strength: 0.2
-  roughness: 0.17
-  fadeIn: 0.09
-  fadeOut: 0.3
-  positionInfluence: {x: 0.12, y: 0.22, z: 0.15}
-  rotationInfluence: {x: 0, y: 0, z: 0}
+  strength: 1.83
+  roughness: 15.2
+  fadeIn: 0.15
+  fadeOut: 0.45
+  positionInfluence: {x: 1.5, y: 1.5, z: 1.5}
+  rotationInfluence: {x: 10, y: 10, z: 10}
