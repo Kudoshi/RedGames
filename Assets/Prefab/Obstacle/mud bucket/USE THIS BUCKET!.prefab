@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 18edac8744efc1d4c944def6921a79ea,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 18edac8744efc1d4c944def6921a79ea,
         type: 3}
@@ -81,7 +81,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 18edac8744efc1d4c944def6921a79ea,
         type: 3}
       propertyPath: m_Name
-      value: mud bucket Variant
+      value: USE THIS BUCKET!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -137,3 +137,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slowSpeed: 1
   slowDuration: 0.2
+  mudSplashEffect: {fileID: 0}

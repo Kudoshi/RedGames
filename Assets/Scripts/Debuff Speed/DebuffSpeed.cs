@@ -6,6 +6,7 @@ public class DebuffSpeed : MonoBehaviour
 {
     public float slowSpeed = 1.0f; // Adjust this value as per your debuff requirement
     public float slowDuration = 0.2f; // Adjust this value to control how long the debuff lasts
+    public ParticleSystem mudSplashEffect;
     private void OnTriggerEnter(Collider other)
     {
 
@@ -19,6 +20,7 @@ public class DebuffSpeed : MonoBehaviour
 
                 trainMovement.ChangeTrainSpeed(-slowSpeed, slowDuration);
                 Destroy(gameObject);
+                mudSplashEffect.Play();
                 Debug.Log("Speed Decreased");
             }
         }
