@@ -31,24 +31,28 @@ public class TrainMovement : MonoBehaviour
         m_CurrentSpeed = m_StartingSpeed;
     }
 
-    public IEnumerator ChangeTrainSpeed(float speedChange, float changeDuration)
+    public void ChangeTrainSpeed(float speedChange, float changeDuration)
+    {
+        float speedTarget = m_CurrentSpeed + speedChange; 
+
+        StartCoroutine(GradualChangeSpeed(speedTarget, changeDuration));
+    }
+
+    private IEnumerator GradualChangeSpeed(float speedTarget, float changeDuration)
     {
         float time = changeDuration;
-        float speedTarget = m_CurrentSpeed + speedChange;
-        while (time > 0)
+
+        while (time >= 0)
         {
-            Mathf.Lerp(m_CurrentSpeed, speedTarget, 1f - (time / changeDuration));
+           m_CurrentSpeed= Mathf.Lerp(m_CurrentSpeed, speedTarget, 1f - (time / changeDuration));
             time -= Time.deltaTime;
 
-            yield return null;
+            yield return null; 
         }
-
-       
     }
 
 
-
-    private void GetNewTrackTarget()
+        private void GetNewTrackTarget()
     {
         // Set the old track as travelled
         m_TargetTrack.GetComponent<Track>().SetTrackTravelled();
@@ -66,7 +70,7 @@ public class TrainMovement : MonoBehaviour
             m_TargetTrack = m_TrackPlacement.m_TracksPool.Objects[m_CurrentTrackIndex];
             m_TargetTrackPos = m_TargetTrack.transform.position;
             m_CurrentSpeed = m_CurrentSpeed < m_MaxSpeed ? m_CurrentSpeed * m_SpeedMultiplier : m_MaxSpeed;
-            UXManager.Instance?.GameUI.UpdateSpeed(m_CurrentSpeed);
+            UXManager.Instance?.GameUI.UpdateSpeed(m_CurrentSpeed, m_StartingSpeed);
             m_Train.Score.AddScoreFunc(m_TravelScore);
         }
 

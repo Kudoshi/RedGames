@@ -59,9 +59,9 @@ public class GameUI : UXBehaviour
     }
     
 
-    public void UpdateSpeed(float speed)
+    public void UpdateSpeed(float speed, float startingSpeed)
     {
-        int calculatedSpeed = (int)((1f / 0.01f) * (speed - 2) + 10);
+        int calculatedSpeed = (int)((1f / 0.01f) * (speed - startingSpeed) + 10);
 
         m_SpeedLabel.text = calculatedSpeed + " km/h";
     }
