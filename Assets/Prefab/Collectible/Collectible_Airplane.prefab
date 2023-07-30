@@ -131,6 +131,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CollectableScore: 30
+  m_CollectPfx:
+    Count: 1
+    m_Prefab: {fileID: 6155324218059016487, guid: e46ee8cb323bca646b870edd76eaf713,
+      type: 3}
+    m_DefaultActive: 1
 --- !u!65 &7332226611220331562
 BoxCollider:
   m_ObjectHideFlags: 0

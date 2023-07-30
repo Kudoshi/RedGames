@@ -10,16 +10,15 @@ public class Train : SingletonMono<Train>
     public TrainMovement TrainMovement;
     public TrainAnimation TrainAnimation;
     public Score Score;
-    [SerializeField] Shaker m_CamShake;
-    [SerializeField] ShakePreset m_HitShakePreset;
-    [SerializeField] ShakePreset m_FallShakePreset;
+    [SerializeField] private Shaker m_CamShake;
+    [SerializeField] private ShakePreset m_HitShakePreset;
 
     public void TrainCrashed()
     {
         // Play train crash
         TrainAnimation.PlayAnimation(TrainAnimation.OFFRAIL_ANIM);
         m_CamShake.Shake(m_HitShakePreset);
-        GameOver();
+        StartCoroutine(GameOver());
     }
 
     public void TrainDerailed()
@@ -28,13 +27,19 @@ public class Train : SingletonMono<Train>
         TrainAnimation.PlayAnimation(TrainAnimation.OFFRAIL_ANIM);
         m_CamShake.Shake(m_HitShakePreset);
 
-        GameOver();
+        StartCoroutine(GameOver());
+
     }
 
-    private void GameOver()
+    private IEnumerator GameOver()
     {
         TrackPlacement.enabled = false;
         TrainMovement.enabled = false;
         GetComponent<BoxCollider>().enabled = false;
+        UXManager.Instance.GameUI.gameObject.SetActive(false);
+
+        yield return new WaitForSeconds(3);
+
+        UXManager.Instance.GameOverScreen.DisplayEndGame(Score.m_CollectableScore, Score.m_CollectedItems);
     }
 }
