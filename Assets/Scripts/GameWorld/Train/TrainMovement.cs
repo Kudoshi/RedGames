@@ -64,7 +64,9 @@ public class TrainMovement : MonoBehaviour
         // If no new track
         if (Vector3.Distance(transform.position, m_TrackPlacement.m_TracksPool.Objects[m_CurrentTrackIndex].transform.position) > 2.1f)
         {
-            m_BezierC = transform.position + (transform.forward * 2);
+            this.m_BezierA = this.transform.position;
+            this.m_BezierB = this.m_BezierA;
+            this.m_BezierC = transform.position + transform.forward;
             m_NoTrackLose = true;
         }
         else
