@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -275,17 +275,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TilePool:
-    Count: 144
+    Count: 288
     m_Prefab: {fileID: 1555880334408152276, guid: e7e285ce7fa22694dab348bede8854fd,
       type: 3}
     m_DefaultActive: 0
   m_Size:
     x: 9
     y: 16
-  m_Center:
+  m_PrevCenter:
+    x: 0
+    y: 0
+  m_CurrCenter:
     x: 0
     y: 0
   m_TargetTransform: {fileID: 557437401}
+  m_TileMask:
+    serializedVersion: 2
+    m_Bits: 0
   m_TileConfigs:
   - Parent: {fileID: 1988452382}
     UpperBound: 50
@@ -550,6 +556,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Train
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719602920974111368, guid: 949329d7201781040b80410b93206278,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
