@@ -585,6 +585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a286f3cb69c8f1a47a73713bd0d8b414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotateSpeed: 1
 --- !u!4 &3146461889629539002 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 525be501c58b02c448cb7c361987b231,

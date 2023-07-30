@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class SoundManager : SingletonMono<SoundManager>
+public class SoundManager : MonoBehaviour 
 {
     [SerializeField] private SoundRepositorySO SoundRepoSO;
     //[SerializeField] private Sound[] m_OneShotAudioArr;
