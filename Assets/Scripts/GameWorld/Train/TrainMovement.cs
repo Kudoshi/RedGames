@@ -33,10 +33,9 @@ public class TrainMovement : MonoBehaviour
 
     public void ChangeTrainSpeed(float speedChange, float changeDuration)
     {
-        float speedTarget = m_CurrentSpeed + speedChange;
+        float speedTarget = m_CurrentSpeed + speedChange; 
 
         StartCoroutine(GradualChangeSpeed(speedTarget, changeDuration));
-       
     }
 
     private IEnumerator GradualChangeSpeed(float speedTarget, float changeDuration)
@@ -48,13 +47,12 @@ public class TrainMovement : MonoBehaviour
            m_CurrentSpeed= Mathf.Lerp(m_CurrentSpeed, speedTarget, 1f - (time / changeDuration));
             time -= Time.deltaTime;
 
-            yield return null;
+            yield return null; 
         }
     }
 
 
-
-    private void GetNewTrackTarget()
+        private void GetNewTrackTarget()
     {
         // Set the old track as travelled
         m_TargetTrack.GetComponent<Track>().SetTrackTravelled();
