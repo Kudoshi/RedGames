@@ -512,12 +512,12 @@ MonoBehaviour:
       type: 3}
     Offset: {x: 0, y: 1, z: 0}
     Objects: []
-  - UpperBound: 96
+  - UpperBound: 98
     TargetObject: {fileID: 4951361981142268, guid: 27ce25370e5628e4097b7cb95b3a151d,
       type: 3}
     Offset: {x: 0, y: 1, z: 0}
     Objects: []
-  - UpperBound: 97
+  - UpperBound: 99
     TargetObject: {fileID: 6760005857072603362, guid: 919411b03e7e668498e44db3242b3f30,
       type: 3}
     Offset: {x: 0, y: 1, z: 0}
