@@ -34,12 +34,17 @@ MonoBehaviour:
     SpatialBlend: 0
     Pitch: 1
   - SoundName: OutofRail
-    Clip: {fileID: 8300000, guid: 176e9c5ab62d8af48b0af8ed430964a3, type: 3}
+    Clip: {fileID: 8300000, guid: 07810df01b9c5dd4ebb645f1b5a7fd0c, type: 3}
     Volume: 1
     SpatialBlend: 0
     Pitch: 1
   - SoundName: UIButton
     Clip: {fileID: 8300000, guid: 7507b3762b98a304bbca13e8c2385805, type: 3}
+    Volume: 1
+    SpatialBlend: 0
+    Pitch: 1
+  - SoundName: HitWood
+    Clip: {fileID: 8300000, guid: 5239ff2864a3e6247ad596d02992857e, type: 3}
     Volume: 1
     SpatialBlend: 0
     Pitch: 1
