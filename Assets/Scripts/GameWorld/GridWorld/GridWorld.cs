@@ -54,8 +54,8 @@ public class GridWorld : MonoBehaviour
         nextTile.transform.position = new Vector3(position.x, 0.0f, position.y);
 
         if (
-            (position.x < this.m_Size.x && position.x > -this.m_Size.x) &&
-            (position.y < this.m_Size.y && position.y > -this.m_Size.y)
+            math.all(position < this.m_Size) &&
+            math.all(position > -this.m_Size)
         ) {
             return;
         }

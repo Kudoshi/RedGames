@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/GameWorld/Score/Collectable.cs.meta
 guid: ee14869cb6b3581409a3dd914bf6a045
+========
+guid: 260a478c42cad6a48a167dc918ce58bb
+>>>>>>>> origin/feature/grid-world:Assets/MenuUI.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
