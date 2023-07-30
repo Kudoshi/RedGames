@@ -17,6 +17,4 @@
             <ui:Button text="Quit" display-tooltip-when-elided="true" name="quit_btn" class="Button" style="position: relative; align-self: center; -unity-font: url(&apos;project://database/Assets/Font/upheavtt.ttf?fileID=12800000&amp;guid=1728847bb956b0f4285b7a428db635fd&amp;type=3#upheavtt&apos;); -unity-font-definition: url(&apos;project://database/Assets/Font/upheavtt%20SDF.asset?fileID=11400000&amp;guid=89d196c40f6d56b4c90a3e51c4ac82e8&amp;type=2#upheavtt SDF&apos;); font-size: 100px; padding-left: 20px; padding-right: 20px; margin-bottom: 89px; transition-property: -unity-font-definition, ignored; transition-duration: 1s, 0s;" />
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:Button text="Button" display-tooltip-when-elided="true" />
-    <ui:TextField picking-mode="Ignore" label="Text Field" value="filler text" />
 </ui:UXML>

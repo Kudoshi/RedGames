@@ -39,7 +39,6 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -428,32 +427,32 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ed4cfb5e16da476458688cd12ddcaddc,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 914.4449
+      value: 405.23627
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ed4cfb5e16da476458688cd12ddcaddc,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 412.35434
+      value: 182.73483
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ed4cfb5e16da476458688cd12ddcaddc,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 412.35434
+      value: 182.73483
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ed4cfb5e16da476458688cd12ddcaddc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.34
+      value: -2.3400002
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ed4cfb5e16da476458688cd12ddcaddc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.97
+      value: 1.55
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ed4cfb5e16da476458688cd12ddcaddc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.68
+      value: -1.8199999
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ed4cfb5e16da476458688cd12ddcaddc,
         type: 3}
@@ -489,6 +488,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ed4cfb5e16da476458688cd12ddcaddc,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ed4cfb5e16da476458688cd12ddcaddc,
         type: 3}
