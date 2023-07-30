@@ -59,9 +59,9 @@ public class GameUI : UXBehaviour
     }
     
 
-    public void UpdateSpeed(float speed)
+    public void UpdateSpeed(float speed, float startingSpeed)
     {
-        int calculatedSpeed = (int)((1f / 0.01f) * (speed - 2) + 10);
+        int calculatedSpeed = (int)((1f / 0.01f) * (speed - startingSpeed) + 10);
 
         m_SpeedLabel.text = calculatedSpeed + " km/h";
     }
@@ -75,19 +75,19 @@ public class GameUI : UXBehaviour
     public void LeftButton()
     {
         Train.Instance.TrackPlacement.SpawnTrainTrack(TrackType.TRACK_LEFT);
-        UXManager.Instance.AudioSource.PlayOneShot(RailPlaceClick);
+        UXManager.Instance.SoundManager.PlayOneShot("RailPlaceSound");
     }
 
     public void MiddleButton()
     {
         Train.Instance.TrackPlacement.SpawnTrainTrack(TrackType.TRACK_STRAIGHT);
-        UXManager.Instance.AudioSource.PlayOneShot(RailPlaceClick);
+        UXManager.Instance.SoundManager.PlayOneShot("RailPlaceSound");
     }
 
     public void RightButton()
     {
         Train.Instance.TrackPlacement.SpawnTrainTrack(TrackType.TRACK_RIGHT);
-        UXManager.Instance.AudioSource.PlayOneShot(RailPlaceClick);
+        UXManager.Instance.SoundManager.PlayOneShot("RailPlaceSound");
     }
 
 

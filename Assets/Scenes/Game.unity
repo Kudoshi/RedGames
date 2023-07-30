@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 557437400}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 16, z: 1.75}
+  m_LocalPosition: {x: 0, y: 15.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -271,62 +271,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 658614451}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c44544b2e9a473428018e32fcd84c72, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bb98914547422341863c89f1cf9e239, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TilePool:
-    Count: 144
-    m_Prefab: {fileID: 1555880334408152276, guid: e7e285ce7fa22694dab348bede8854fd,
-      type: 3}
-    m_DefaultActive: 0
+  m_TilePrefab: {fileID: 8696388224633396665, guid: e7e285ce7fa22694dab348bede8854fd,
+    type: 3}
+  m_TileLayer:
+    serializedVersion: 2
+    m_Bits: 512
   m_Size:
     x: 9
     y: 16
+  m_TargetTransform: {fileID: 557437401}
   m_Center:
     x: 0
     y: 0
-  m_TargetTransform: {fileID: 557437401}
   m_TileConfigs:
-  - Parent: {fileID: 1988452382}
-    UpperBound: 50
-    Pool:
-      Count: 100
-      m_Prefab: {fileID: 4133024124776080370, guid: ea1c029106fb77042833eb90a101ec6d,
-        type: 3}
-      m_DefaultActive: 0
-    Offset: {x: 0, y: 0, z: 0}
-  - Parent: {fileID: 1988452382}
-    UpperBound: 55
-    Pool:
-      Count: 100
-      m_Prefab: {fileID: 4334696594685364071, guid: 787c3d83ec5cdd04c8524cb8ff91e797,
-        type: 3}
-      m_DefaultActive: 0
-    Offset: {x: 0, y: 0, z: 0}
-  - Parent: {fileID: 1988452382}
-    UpperBound: 60
-    Pool:
-      Count: 100
-      m_Prefab: {fileID: 531087023535014752, guid: 27efa3b53c77f24408c94e4f2ceab1f5,
-        type: 3}
-      m_DefaultActive: 0
-    Offset: {x: 0, y: 0, z: 0}
-  - Parent: {fileID: 625520935}
-    UpperBound: 70
-    Pool:
-      Count: 100
-      m_Prefab: {fileID: 8245024798994043591, guid: 47e4171d4afe48d45a4bbf407c5cf2b3,
-        type: 3}
-      m_DefaultActive: 0
-    Offset: {x: 0, y: 0, z: 0}
-  - Parent: {fileID: 1420545899}
-    UpperBound: 80
-    Pool:
-      Count: 100
-      m_Prefab: {fileID: 4137486168269956, guid: da41fd2967a439d409358c2214a5409e,
-        type: 3}
-      m_DefaultActive: 0
-    Offset: {x: 0, y: -0.5, z: 0}
+  - UpperBound: 84
+    TargetObject: {fileID: 4269478707444772973, guid: 68c8c284faed21348bd2f7f7e74cd68a,
+      type: 3}
+    Offset: {x: 0, y: 1, z: 0}
+    Objects: []
 --- !u!1 &928825230
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,7 +464,7 @@ PrefabInstance:
     - target: {fileID: 1444973986161107317, guid: 949329d7201781040b80410b93206278,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.81
       objectReference: {fileID: 0}
     - target: {fileID: 1444973986161107317, guid: 949329d7201781040b80410b93206278,
         type: 3}
@@ -541,35 +506,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1823595190234869625, guid: 949329d7201781040b80410b93206278,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.75
-      objectReference: {fileID: 0}
     - target: {fileID: 2117640610051688236, guid: 949329d7201781040b80410b93206278,
         type: 3}
-      propertyPath: TRACK_HEIGHT
-      value: 0.51
+      propertyPath: m_SpawnCheckHitLayer.m_Bits
+      value: 319
       objectReference: {fileID: 0}
-    - target: {fileID: 2117640610051688236, guid: 949329d7201781040b80410b93206278,
+    - target: {fileID: 2119605354641603281, guid: 949329d7201781040b80410b93206278,
         type: 3}
-      propertyPath: m_TileLayer.m_Bits
+      propertyPath: m_MaxSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119605354641603281, guid: 949329d7201781040b80410b93206278,
+        type: 3}
+      propertyPath: m_StartingSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119605354641603281, guid: 949329d7201781040b80410b93206278,
+        type: 3}
+      propertyPath: m_SpeedMultiplier
+      value: 1.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2654961741193629067, guid: 949329d7201781040b80410b93206278,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2117640610051688236, guid: 949329d7201781040b80410b93206278,
-        type: 3}
-      propertyPath: m_CollectibleLayer.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 2451735726311631142, guid: 949329d7201781040b80410b93206278,
-        type: 3}
-      propertyPath: BreakRail
-      value: 
-      objectReference: {fileID: 8300000, guid: c5ee72b2ab2738d42ab8abe020de1199, type: 3}
     - target: {fileID: 2719602920974111368, guid: 949329d7201781040b80410b93206278,
         type: 3}
       propertyPath: m_Name
       value: Train
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245870998272855146, guid: 949329d7201781040b80410b93206278,
+        type: 3}
+      propertyPath: RotationModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245870998272855146, guid: 949329d7201781040b80410b93206278,
+        type: 3}
+      propertyPath: RotationModule.curve.scalar
+      value: 6.283185
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

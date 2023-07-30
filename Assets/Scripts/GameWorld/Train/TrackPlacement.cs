@@ -15,8 +15,8 @@ public class TrackPlacement : MonoBehaviour
     //[SerializeField] int m_MaxTrackPlacement = 3;
     [SerializeField] private LayerMask m_CollectibleLayer;
     [SerializeField] private LayerMask m_TrainLayer;
+    [SerializeField] private LayerMask m_SpawnCheckHitLayer;
 
-    private int m_SpawnCheckHitLayer;
     private int m_StartingTrackIndex;
     private Train m_Train;
 
@@ -36,13 +36,6 @@ public class TrackPlacement : MonoBehaviour
         PreTrackInitializeSpawn(3);
 
         m_StartingTrackIndex = 1;
-
-        // Set all bits to 1
-        int allLayers = ~0;
-
-        // Turn off the bits for the following
-        m_SpawnCheckHitLayer = allLayers & ~(m_CollectibleLayer.value | m_TrainLayer.value);
-
     }
 
     private void PreTrackInitializeSpawn(float zPos)
