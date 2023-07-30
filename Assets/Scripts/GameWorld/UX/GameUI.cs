@@ -1,8 +1,4 @@
-using System;
-using Unity.VisualScripting;
-using UnityEditor.AssetImporters;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UIElements;
 
 public class GameUI : UXBehaviour
@@ -59,9 +55,10 @@ public class GameUI : UXBehaviour
     }
     
 
-    public void UpdateSpeed(float speed, float startingSpeed)
+    public void UpdateSpeed(float speed)
     {
-        int calculatedSpeed = (int)((1f / 0.01f) * (speed - startingSpeed) + 10);
+        float calculatedSpeed = speed / 1000.0f * 3600.0f;
+        calculatedSpeed = Mathf.Round(calculatedSpeed * 100.0f) * 0.01f;
 
         m_SpeedLabel.text = calculatedSpeed + " km/h";
     }

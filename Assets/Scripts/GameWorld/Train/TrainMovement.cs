@@ -70,7 +70,7 @@ public class TrainMovement : MonoBehaviour
             m_TargetTrack = m_TrackPlacement.m_TracksPool.Objects[m_CurrentTrackIndex];
             m_TargetTrackPos = m_TargetTrack.transform.position;
             m_CurrentSpeed = m_CurrentSpeed < m_MaxSpeed ? m_CurrentSpeed * m_SpeedMultiplier : m_MaxSpeed;
-            UXManager.Instance?.GameUI.UpdateSpeed(m_CurrentSpeed, m_StartingSpeed);
+            UXManager.Instance?.GameUI.UpdateSpeed(m_CurrentSpeed);
             m_Train.Score.AddScoreFunc(m_TravelScore);
         }
 
