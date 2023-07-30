@@ -15,6 +15,7 @@ public abstract class UXBehaviour : MonoBehaviour
 
     public virtual void TurnOnOffUX(bool onOff)
     {
-        this.m_Document.enabled = onOff;
+        this.m_Root.visible = onOff;
+        // this.m_Document.enabled = onOff;
     }
 }

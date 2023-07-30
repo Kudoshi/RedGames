@@ -25,50 +25,48 @@ public class MenuUI : UXBehaviour
         m_tapstartbutton = m_Root.Q<Button>("start_btn");
         m_TapStartLabel = m_Root.Q<Label>("tap_start");
         m_quitbutton = m_Root.Q<Button>("quit_btn");
-        m_tapstartbutton.clicked += () => StartButton();
-        m_quitbutton.clicked += () => QuitButton();
-
+        m_tapstartbutton.clicked += StartButton;
+        m_quitbutton.clicked += QuitButton;
     }
 
 
-    public override void TurnOnOffUX(bool onOff)
-    {
-        base.TurnOnOffUX(onOff);
-        StartCoroutine(AnimateTapStartLabel());
-    }
+    // public override void TurnOnOffUX(bool onOff)
+    // {
+    //     base.TurnOnOffUX(onOff);
+    //     StartCoroutine(AnimateTapStartLabel());
+    // }
 
-    private IEnumerator AnimateTapStartLabel()
-    {
-        bool increase = true;
-        float originalSize = 110;
-        float currentSize = originalSize;
-        while (m_Document.enabled)
-        {
-            if (increase)
-            {
-                currentSize += Time.deltaTime * m_PopSpeed;
+    // private IEnumerator AnimateTapStartLabel()
+    // {
+    //     bool increase = true;
+    //     float originalSize = 110;
+    //     float currentSize = originalSize;
+    //     while (m_Document.enabled)
+    //     {
+    //         if (increase)
+    //         {
+    //             currentSize += Time.deltaTime * m_PopSpeed;
                     
-            }
-            else
-            {
-                currentSize -= Time.deltaTime * m_PopSpeed;
+    //         }
+    //         else
+    //         {
+    //             currentSize -= Time.deltaTime * m_PopSpeed;
 
-            }
+    //         }
 
-            m_TapStartLabel.style.fontSize = currentSize;
+    //         m_TapStartLabel.style.fontSize = currentSize;
 
-            if (m_TapStartLabel.style.fontSize.value.value > (originalSize + m_PopSize))
-                increase = false;
-            else if (m_TapStartLabel.style.fontSize.value.value < (originalSize - m_PopSize))
-                increase = true;
+    //         if (m_TapStartLabel.style.fontSize.value.value > (originalSize + m_PopSize))
+    //             increase = false;
+    //         else if (m_TapStartLabel.style.fontSize.value.value < (originalSize - m_PopSize))
+    //             increase = true;
 
-            yield return null;
-        }
-    }
+    //         yield return null;
+    //     }
+    // }
 
     public void StartButton()
     {
-
         UXManager.Instance.AudioSource.PlayOneShot(ButtonPress);
         UXManager.Instance.SwitchToMenu(UXManager.SceneType.GAME);
         Train.Instance.StartTrain();
