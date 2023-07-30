@@ -6,6 +6,7 @@ using MilkShake;
 
 public class Train : SingletonMono<Train>
 {
+    public AudioSource AudioSource;
     public TrackPlacement TrackPlacement;
     public TrainMovement TrainMovement;
     public TrainAnimation TrainAnimation;
@@ -20,6 +21,7 @@ public class Train : SingletonMono<Train>
     }
     private void StopTrain()
     {
+        AudioSource.Stop();
         TrackPlacement.enabled = false;
         TrainMovement.enabled = false;
         m_SmokePfx.Stop();
@@ -27,6 +29,9 @@ public class Train : SingletonMono<Train>
 
     public void StartTrain()
     {
+        AudioSource.Play();
+        
+        UXManager.Instance.SoundManager.PlayOneShot("TrainMove");
         TrackPlacement.enabled = true;
         TrainMovement.enabled = true;
         m_SmokePfx.Play();

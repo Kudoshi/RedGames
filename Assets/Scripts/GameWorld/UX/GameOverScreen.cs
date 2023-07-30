@@ -72,8 +72,8 @@ public class GameOverScreen : UXBehaviour
 
     private void ContinueGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         UXManager.Instance.SoundManager.PlayOneShot("UIButton");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         
     }
 
