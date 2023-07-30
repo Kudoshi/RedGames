@@ -56,11 +56,11 @@ public class GameUI : UXBehaviour
     {
         m_TotalScore.text = score.ToString();
     }
-    
 
-    public void UpdateSpeed(float speed)
+
+    public void UpdateSpeed(float speed, float startingSpeed)
     {
-        int calculatedSpeed = (int)((1f / 0.01f) * (speed - 2) + 30);
+        int calculatedSpeed = (int)((1f / 0.01f) * (speed - startingSpeed) + 30);
 
         m_SpeedLabel.text = calculatedSpeed + " km/h";
     }

@@ -541,6 +541,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2119605354641603281, guid: 949329d7201781040b80410b93206278,
+        type: 3}
+      propertyPath: m_MaxSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119605354641603281, guid: 949329d7201781040b80410b93206278,
+        type: 3}
+      propertyPath: m_StartingSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119605354641603281, guid: 949329d7201781040b80410b93206278,
+        type: 3}
+      propertyPath: m_SpeedMultiplier
+      value: 1.001
+      objectReference: {fileID: 0}
     - target: {fileID: 2654961741193629067, guid: 949329d7201781040b80410b93206278,
         type: 3}
       propertyPath: m_IsActive
