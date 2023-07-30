@@ -511,45 +511,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2117640610051688236, guid: 949329d7201781040b80410b93206278,
-        type: 3}
-      propertyPath: m_SpawnCheckHitLayer.m_Bits
-      value: 319
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119605354641603281, guid: 949329d7201781040b80410b93206278,
-        type: 3}
-      propertyPath: m_MaxSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119605354641603281, guid: 949329d7201781040b80410b93206278,
-        type: 3}
-      propertyPath: m_StartingSpeed
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119605354641603281, guid: 949329d7201781040b80410b93206278,
-        type: 3}
-      propertyPath: m_SpeedMultiplier
-      value: 1.001
-      objectReference: {fileID: 0}
-    - target: {fileID: 2654961741193629067, guid: 949329d7201781040b80410b93206278,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2719602920974111368, guid: 949329d7201781040b80410b93206278,
         type: 3}
       propertyPath: m_Name
       value: Train
       objectReference: {fileID: 0}
-    - target: {fileID: 5245870998272855146, guid: 949329d7201781040b80410b93206278,
+    - target: {fileID: 6706482419493987313, guid: 949329d7201781040b80410b93206278,
         type: 3}
-      propertyPath: RotationModule.enabled
+      propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5245870998272855146, guid: 949329d7201781040b80410b93206278,
-        type: 3}
-      propertyPath: RotationModule.curve.scalar
-      value: 6.283185
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

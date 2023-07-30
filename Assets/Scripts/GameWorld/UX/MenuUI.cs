@@ -9,10 +9,15 @@ public class MenuUI : UXBehaviour
     public Button m_tapstartbutton;
     public Button m_quitbutton;
 
+    private void Awake()
+    {
+        InitializeDoc();
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        InitializeDoc();
         m_tapstartbutton = m_Root.Q<Button>("start_btn");
         m_quitbutton = m_Root.Q<Button>("quit_btn");
         m_tapstartbutton.clicked += () => StartButton();
@@ -29,11 +34,13 @@ public class MenuUI : UXBehaviour
     {
 
         UXManager.Instance.AudioSource.PlayOneShot(ButtonPress);
-
+        UXManager.Instance.SwitchToMenu(UXManager.SceneType.GAME);
+        Train.Instance.StartTrain();
     }
 
     public void QuitButton()
     {
         UXManager.Instance.AudioSource.PlayOneShot(ButtonPress);
+        Application.Quit();
     }
 }
