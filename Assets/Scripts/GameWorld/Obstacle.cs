@@ -5,6 +5,7 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     [SerializeField] GameObject m_CrashPfx;
+    [SerializeField] string m_CrashSfxName;
 
     private BoxCollider m_Collider;
 
@@ -16,10 +17,12 @@ public class Obstacle : MonoBehaviour
     {
         if (collision.collider.CompareTag("Train"))
         {
+            
             m_CrashPfx.SetActive(true);
             m_Collider.enabled = false;
 
             collision.collider.GetComponent<Train>().TrainCrashed();
+            UXManager.Instance.SoundManager.PlayOneShot(m_CrashSfxName);
         }
     }
 }

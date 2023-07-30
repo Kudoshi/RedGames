@@ -11,12 +11,14 @@ public class TrackPlacement : MonoBehaviour
     public float TRACK_HEIGHT= 1.1f;
 
     public Pool<Transform> m_TracksPool = new Pool<Transform>();
+    
 
     //[SerializeField] int m_MaxTrackPlacement = 3;
     [SerializeField] private LayerMask m_CollectibleLayer;
     [SerializeField] private LayerMask m_TrainLayer;
+    [SerializeField] private LayerMask m_SpawnCheckHitLayer;
+    [SerializeField] private Pool<ParticleSystem> m_PlacementPfxPool;
 
-    private int m_SpawnCheckHitLayer;
     private int m_StartingTrackIndex;
     private Train m_Train;
 
@@ -27,6 +29,7 @@ public class TrackPlacement : MonoBehaviour
         m_Train = GetComponent<Train>();
 
         m_TracksPool.Initialize(new GameObject("Track Parent").transform);
+        m_PlacementPfxPool.Initialize(new GameObject("Track Placement Pfx Parent").transform);
 
         // Spawn Initial Track
         PreTrackInitializeSpawn(-1);
@@ -36,13 +39,6 @@ public class TrackPlacement : MonoBehaviour
         PreTrackInitializeSpawn(3);
 
         m_StartingTrackIndex = 1;
-
-        // Set all bits to 1
-        int allLayers = ~0;
-
-        // Turn off the bits for the following
-        m_SpawnCheckHitLayer = allLayers & ~(m_CollectibleLayer.value | m_TrainLayer.value);
-
     }
 
     private void PreTrackInitializeSpawn(float zPos)
@@ -88,7 +84,7 @@ public class TrackPlacement : MonoBehaviour
          
         if (hitCollider.Length > 0)
         {
-            Debug.Log(hitCollider[0].name);
+            
             return;
         }
 
@@ -124,7 +120,9 @@ public class TrackPlacement : MonoBehaviour
         Track trackScript = newTrack.GetComponent<Track>();
         trackScript.DisplayTrack(trackType);
         newTrack.gameObject.SetActive(true);
-
+        ParticleSystem pfx = m_PlacementPfxPool.GetNextObject();
+        pfx.transform.position = newTrack.position;
+        pfx.Play();
     }
 
 }

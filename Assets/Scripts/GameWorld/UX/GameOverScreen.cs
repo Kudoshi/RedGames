@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class GameOverScreen : UXBehaviour
@@ -10,11 +11,19 @@ public class GameOverScreen : UXBehaviour
     private Label m_CollectibleCountLabel;
     private Label m_ScoreLabel;
     private Label m_HighScore;
+    public Button m_ContinueBtn;
+
+    private void Awake()
+    {
+        InitializeDoc();
+
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        InitializeDoc();
+        m_ContinueBtn = m_Root.Q<Button>("continue-btn");
+        m_ContinueBtn.clicked += () => ContinueGame();
 
         
         m_CollectibleCountLabel = m_Root.Q<Label>("collectible");
@@ -25,7 +34,8 @@ public class GameOverScreen : UXBehaviour
         m_HighScore = m_Root.Q<Label>("highest-score");
 
     }
-    
+
+
     public void DisplayEndGame(int finalScore, int totalCollectible)
     {
         int bestScore = GetHighScore();
@@ -59,5 +69,19 @@ public class GameOverScreen : UXBehaviour
         {
             return 0;
         }
+    }
+
+    private void ContinueGame()
+    {
+        UXManager.Instance.SoundManager.PlayOneShot("UIButton");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
+    }
+
+    private void EndGame()
+    {
+        Scene scene = SceneManager.GetActiveScene(); 
+        SceneManager.LoadScene(scene.name);
+        UXManager.Instance.SoundManager.PlayOneShot("UIButton");
     }
 }

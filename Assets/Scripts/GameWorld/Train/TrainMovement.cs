@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Unity.Mathematics;
 
 public class TrainMovement : MonoBehaviour
 {
@@ -11,7 +11,12 @@ public class TrainMovement : MonoBehaviour
 
     private TrackPlacement m_TrackPlacement;
     private int m_CurrentTrackIndex; // Going to which track index
-    private Vector3 m_TargetTrackPos; // Going to which track index
+
+    private Vector3 m_BezierA;
+    private Vector3 m_BezierB;
+    private Vector3 m_BezierC;
+    private float m_BezierTime;
+
     private Transform m_TargetTrack; // Going to which track index
     private float m_CurrentSpeed;
     private bool m_NoTrackLose;
@@ -31,12 +36,11 @@ public class TrainMovement : MonoBehaviour
         m_CurrentSpeed = m_StartingSpeed;
     }
 
-    public void ChangeTrainSpeed(float speedChange, float changeDuration)
+    public void ChangeTrainSpeed(float speedPercentage, float changeDuration)
     {
-        float speedTarget = m_CurrentSpeed + speedChange;
-
+        speedPercentage = math.saturate(speedPercentage);
+        float speedTarget = math.max(m_CurrentSpeed * speedPercentage, this.m_StartingSpeed);
         StartCoroutine(GradualChangeSpeed(speedTarget, changeDuration));
-       
     }
 
     private IEnumerator GradualChangeSpeed(float speedTarget, float changeDuration)
@@ -45,14 +49,12 @@ public class TrainMovement : MonoBehaviour
 
         while (time >= 0)
         {
-           m_CurrentSpeed= Mathf.Lerp(m_CurrentSpeed, speedTarget, 1f - (time / changeDuration));
+            m_CurrentSpeed = Mathf.Lerp(m_CurrentSpeed, speedTarget, 1f - (time / changeDuration));
             time -= Time.deltaTime;
 
             yield return null;
         }
     }
-
-
 
     private void GetNewTrackTarget()
     {
@@ -64,26 +66,33 @@ public class TrainMovement : MonoBehaviour
         // If no new track
         if (Vector3.Distance(transform.position, m_TrackPlacement.m_TracksPool.Objects[m_CurrentTrackIndex].transform.position) > 2.1f)
         {
-            m_TargetTrackPos = transform.position + (transform.forward * 2);
+            this.m_BezierA = this.transform.position;
+            this.m_BezierB = this.m_BezierA;
+            this.m_BezierC = transform.position + transform.forward;
             m_NoTrackLose = true;
         }
         else
         {
             m_TargetTrack = m_TrackPlacement.m_TracksPool.Objects[m_CurrentTrackIndex];
-            m_TargetTrackPos = m_TargetTrack.transform.position;
+
+            this.m_BezierA = this.transform.position;
+            this.m_BezierB = this.m_TargetTrack.position;
+            this.m_BezierC = this.m_BezierB + this.m_TargetTrack.forward * 0.5f;
+
             m_CurrentSpeed = m_CurrentSpeed < m_MaxSpeed ? m_CurrentSpeed * m_SpeedMultiplier : m_MaxSpeed;
-            UXManager.Instance?.GameUI.UpdateSpeed(m_CurrentSpeed, m_StartingSpeed);
+            UXManager.Instance?.GameUI.UpdateSpeed(m_CurrentSpeed);
             m_Train.Score.AddScoreFunc(m_TravelScore);
         }
 
         //Maintain same height
-        m_TargetTrackPos = new Vector3(m_TargetTrackPos.x, transform.position.y, m_TargetTrackPos.z);
+        m_BezierB = new Vector3(m_BezierB.x, transform.position.y, m_BezierB.z);
+        m_BezierC = new Vector3(m_BezierC.x, transform.position.y, m_BezierC.z);
     }
 
     private void Update()
     {
         // Just reach track position
-        if (transform.position.x == m_TargetTrackPos.x && transform.position.z == m_TargetTrackPos.z)
+        if (transform.position.x == m_BezierC.x && transform.position.z == m_BezierC.z)
         {
             if (m_NoTrackLose == true)
             {
@@ -92,26 +101,34 @@ public class TrainMovement : MonoBehaviour
             }
 
             GetNewTrackTarget();
+            this.m_BezierTime = 0.0f;
         }
 
+        this.m_BezierTime += m_CurrentSpeed * Time.deltaTime;
+        this.m_BezierTime = Mathf.Clamp(this.m_BezierTime, 0.0f, 1.0f);
 
-        float currentSpeed = m_CurrentSpeed;
+        this.transform.position = QuadraticBezierUtil.GetPosition(
+            this.m_BezierA, this.m_BezierB, this.m_BezierC,
+            this.m_BezierTime
+        );
+
+        this.transform.forward = QuadraticBezierUtil.GetTangent(
+            this.m_BezierA, this.m_BezierB, this.m_BezierC,
+            this.m_BezierTime
+        );
+
         // Rotation
-        float angleDirection = Vector3.Angle(transform.forward, m_TargetTrack.forward);
+        // float angleDirection = Vector3.Angle(transform.forward, m_TargetTrack.forward);
 
-        if (angleDirection > 1)
-        {
-            // Calculate the rotation needed to look at the target's forward direction
-            Quaternion targetRotation = Quaternion.LookRotation(m_TargetTrack.forward, transform.up);
-            currentSpeed *= 0.3f;
+        // if (angleDirection > 1)
+        // {
+        //     // Calculate the rotation needed to look at the target's forward direction
+        //     Quaternion targetRotation = Quaternion.LookRotation(m_TargetTrack.forward, transform.up);
 
-            // Smoothly rotate towards the target rotation
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, m_CurrentSpeed * Time.deltaTime);
-        }
-        
-        transform.position = Vector3.MoveTowards(transform.position, m_TargetTrackPos, m_CurrentSpeed * Time.deltaTime);
+        //     // Smoothly rotate towards the target rotation
+        //     transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, m_CurrentSpeed * Time.deltaTime);
+        // }
 
-
-
+        // transform.position = Vector3.MoveTowards(transform.position, m_BezierC, m_CurrentSpeed * Time.deltaTime);
     }
 }

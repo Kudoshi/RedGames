@@ -1,21 +1,24 @@
-using System;
-using Unity.VisualScripting;
-using UnityEditor.AssetImporters;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UIElements;
 
 public class GameUI : UXBehaviour
 {
     //public Label m_TotalScore;
+    public AudioClip RailPlaceClick;
     public Label m_TotalCollectableCount;
     public Label m_TotalScore;
     public Label m_SpeedLabel;
     public Button m_leftButton;
     public Button m_middleButton;
     public Button m_rightButton;
-
+    
     private int m_CurrScore;
+
+    private void Awake()
+    {
+        InitializeDoc();
+
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -56,11 +59,12 @@ public class GameUI : UXBehaviour
     {
         m_TotalScore.text = score.ToString();
     }
+    
 
-
-    public void UpdateSpeed(float speed, float startingSpeed)
+    public void UpdateSpeed(float speed)
     {
-        int calculatedSpeed = (int)((1f / 0.01f) * (speed - startingSpeed) + 30);
+        float calculatedSpeed = speed / 1000.0f * 3600.0f;
+        calculatedSpeed = Mathf.Round(calculatedSpeed * 100.0f) * 0.01f;
 
         m_SpeedLabel.text = calculatedSpeed + " km/h";
     }
@@ -74,18 +78,19 @@ public class GameUI : UXBehaviour
     public void LeftButton()
     {
         Train.Instance.TrackPlacement.SpawnTrainTrack(TrackType.TRACK_LEFT);
+        UXManager.Instance.SoundManager.PlayOneShot("RailPlaceSound");
     }
 
     public void MiddleButton()
     {
         Train.Instance.TrackPlacement.SpawnTrainTrack(TrackType.TRACK_STRAIGHT);
-
+        UXManager.Instance.SoundManager.PlayOneShot("RailPlaceSound");
     }
 
     public void RightButton()
     {
         Train.Instance.TrackPlacement.SpawnTrainTrack(TrackType.TRACK_RIGHT);
-
+        UXManager.Instance.SoundManager.PlayOneShot("RailPlaceSound");
     }
 
 
