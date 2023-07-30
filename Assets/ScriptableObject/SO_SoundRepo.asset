@@ -15,7 +15,7 @@ MonoBehaviour:
   SoundList:
   - SoundName: Collectable
     Clip: {fileID: 8300000, guid: b240194bb9bdb6d43a98b7e8f646a965, type: 3}
-    Volume: 1
+    Volume: 0.4
     SpatialBlend: 0
     Pitch: 1
   - SoundName: HitStone
@@ -25,7 +25,7 @@ MonoBehaviour:
     Pitch: 1
   - SoundName: RailPlaceSound
     Clip: {fileID: 8300000, guid: edc2f1dae1d1f3e408055d6ded4ffa66, type: 3}
-    Volume: 1
+    Volume: 0.8
     SpatialBlend: 0
     Pitch: 1
   - SoundName: MuckBucket
@@ -46,5 +46,10 @@ MonoBehaviour:
   - SoundName: HitWood
     Clip: {fileID: 8300000, guid: 5239ff2864a3e6247ad596d02992857e, type: 3}
     Volume: 1
+    SpatialBlend: 0
+    Pitch: 1
+  - SoundName: TrainMove
+    Clip: {fileID: 8300000, guid: 296f556f042c8cb4bbf8b3244e530c87, type: 3}
+    Volume: 0.9
     SpatialBlend: 0
     Pitch: 1
