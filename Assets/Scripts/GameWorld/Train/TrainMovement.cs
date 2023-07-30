@@ -33,7 +33,7 @@ public class TrainMovement : MonoBehaviour
 
     public void ChangeTrainSpeed(float speedChange, float changeDuration)
     {
-        float speedTarget = m_CurrentSpeed + speedChange;
+        float speedTarget = m_CurrentSpeed + speedChange; 
 
         StartCoroutine(GradualChangeSpeed(speedTarget, changeDuration));
     }
