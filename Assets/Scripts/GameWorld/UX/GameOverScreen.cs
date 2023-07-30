@@ -11,8 +11,7 @@ public class GameOverScreen : UXBehaviour
     private Label m_CollectibleCountLabel;
     private Label m_ScoreLabel;
     private Label m_HighScore;
-    public Button m_RestartButton;
-    public Button m_QuitButton;
+    public Button m_ContinueBtn;
 
     private void Awake()
     {
@@ -23,10 +22,8 @@ public class GameOverScreen : UXBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_RestartButton = m_Root.Q<Button>("restart-btn");
-        m_QuitButton = m_Root.Q<Button>("end-btn");
-        m_RestartButton.clicked += () => RestartGame();
-        m_QuitButton.clicked += () => EndGame();
+        m_ContinueBtn = m_Root.Q<Button>("continue-btn");
+        m_ContinueBtn.clicked += () => ContinueGame();
 
         
         m_CollectibleCountLabel = m_Root.Q<Label>("collectible");
@@ -73,7 +70,7 @@ public class GameOverScreen : UXBehaviour
         }
     }
 
-    private void RestartGame()
+    private void ContinueGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         UXManager.Instance.SoundManager.PlayOneShot("UIButton");

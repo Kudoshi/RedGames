@@ -12,7 +12,7 @@ public class Train : SingletonMono<Train>
     public Score Score;
     [SerializeField] private Shaker m_CamShake;
     [SerializeField] private ShakePreset m_HitShakePreset;
-    [SerializeField] private GameObject m_SmokeObject;
+    [SerializeField] private ParticleSystem m_SmokePfx;
 
     private void Start()
     {
@@ -22,14 +22,15 @@ public class Train : SingletonMono<Train>
     {
         TrackPlacement.enabled = false;
         TrainMovement.enabled = false;
-        m_SmokeObject.SetActive(false);
+        m_SmokePfx.Stop();
     }
 
     public void StartTrain()
     {
         TrackPlacement.enabled = true;
         TrainMovement.enabled = true;
-        m_SmokeObject.SetActive(true);
+        m_SmokePfx.Play();
+
     }
 
     public void TrainCrashed()

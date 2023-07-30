@@ -412,12 +412,6 @@ Transform:
   m_Father: {fileID: 658614452}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1707883109 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6706482419493987313, guid: 949329d7201781040b80410b93206278,
-    type: 3}
-  m_PrefabInstance: {fileID: 2052853420}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1988452381
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,50 +506,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2117640610051688236, guid: 949329d7201781040b80410b93206278,
-        type: 3}
-      propertyPath: m_SpawnCheckHitLayer.m_Bits
-      value: 319
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119605354641603281, guid: 949329d7201781040b80410b93206278,
-        type: 3}
-      propertyPath: m_MaxSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119605354641603281, guid: 949329d7201781040b80410b93206278,
-        type: 3}
-      propertyPath: m_StartingSpeed
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119605354641603281, guid: 949329d7201781040b80410b93206278,
-        type: 3}
-      propertyPath: m_SpeedMultiplier
-      value: 1.001
-      objectReference: {fileID: 0}
-    - target: {fileID: 2451735726311631142, guid: 949329d7201781040b80410b93206278,
-        type: 3}
-      propertyPath: m_SmokeObject
-      value: 
-      objectReference: {fileID: 1707883109}
-    - target: {fileID: 2654961741193629067, guid: 949329d7201781040b80410b93206278,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2719602920974111368, guid: 949329d7201781040b80410b93206278,
         type: 3}
       propertyPath: m_Name
       value: Train
       objectReference: {fileID: 0}
-    - target: {fileID: 5245870998272855146, guid: 949329d7201781040b80410b93206278,
+    - target: {fileID: 6706482419493987313, guid: 949329d7201781040b80410b93206278,
         type: 3}
-      propertyPath: RotationModule.enabled
+      propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5245870998272855146, guid: 949329d7201781040b80410b93206278,
-        type: 3}
-      propertyPath: RotationModule.curve.scalar
-      value: 6.283185
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
