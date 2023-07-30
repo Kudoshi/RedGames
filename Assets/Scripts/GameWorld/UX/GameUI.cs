@@ -75,19 +75,19 @@ public class GameUI : UXBehaviour
     public void LeftButton()
     {
         Train.Instance.TrackPlacement.SpawnTrainTrack(TrackType.TRACK_LEFT);
-        UXManager.Instance.AudioSource.PlayOneShot(RailPlaceClick);
+        UXManager.Instance.SoundManager.PlayOneShot("RailPlaceSound");
     }
 
     public void MiddleButton()
     {
         Train.Instance.TrackPlacement.SpawnTrainTrack(TrackType.TRACK_STRAIGHT);
-        UXManager.Instance.AudioSource.PlayOneShot(RailPlaceClick);
+        UXManager.Instance.SoundManager.PlayOneShot("RailPlaceSound");
     }
 
     public void RightButton()
     {
         Train.Instance.TrackPlacement.SpawnTrainTrack(TrackType.TRACK_RIGHT);
-        UXManager.Instance.AudioSource.PlayOneShot(RailPlaceClick);
+        UXManager.Instance.SoundManager.PlayOneShot("RailPlaceSound");
     }
 
 

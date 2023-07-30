@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class GameOverScreen : UXBehaviour
@@ -10,11 +11,17 @@ public class GameOverScreen : UXBehaviour
     private Label m_CollectibleCountLabel;
     private Label m_ScoreLabel;
     private Label m_HighScore;
+    public Button m_RestartButton;
+    public Button m_QuitButton;
 
     // Start is called before the first frame update
     void Start()
     {
         InitializeDoc();
+        m_RestartButton = m_Root.Q<Button>("restart-btn");
+        m_QuitButton = m_Root.Q<Button>("end-btn");
+        m_RestartButton.clicked += () => RestartGame();
+        m_QuitButton.clicked += () => EndGame();
 
         
         m_CollectibleCountLabel = m_Root.Q<Label>("collectible");
@@ -59,5 +66,18 @@ public class GameOverScreen : UXBehaviour
         {
             return 0;
         }
+    }
+
+    private void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        UXManager.Instance.SoundManager.PlayOneShot("UIButton");
+        
+    }
+
+    private void EndGame()
+    {
+        UnityEditor.EditorApplication.isPlaying = false;
+        UXManager.Instance.SoundManager.PlayOneShot("UIButton");
     }
 }

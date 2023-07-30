@@ -1,14 +1,21 @@
 .custombutton__btn {
     margin-top: 1000px;
     margin-bottom: 80px;
-    padding-left: 90px;
-    padding-right: 90px;
+    padding-left: 110px;
+    padding-right: 110px;
     font-size: 55px;
     border-top-width: 0;
-    padding-top: 200px;
+    padding-top: 130px;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    opacity: 1;
+    color: rgb(27, 27, 27);
+    background-color: rgba(239, 241, 237, 0.3);
 }
 
-.custombutton__btn:hover {
+.custombutton__btn:active {
     border-left-width: 10px;
     border-right-width: 10px;
     border-top-width: 10px;
