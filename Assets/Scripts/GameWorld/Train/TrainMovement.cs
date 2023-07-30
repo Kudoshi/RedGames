@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using Unity.Mathematics;
 
 public class TrainMovement : MonoBehaviour
 {
@@ -35,9 +36,10 @@ public class TrainMovement : MonoBehaviour
         m_CurrentSpeed = m_StartingSpeed;
     }
 
-    public void ChangeTrainSpeed(float speedChange, float changeDuration)
+    public void ChangeTrainSpeed(float speedPercentage, float changeDuration)
     {
-        float speedTarget = m_CurrentSpeed + speedChange;
+        speedPercentage = math.saturate(speedPercentage);
+        float speedTarget = math.max(m_CurrentSpeed * speedPercentage, this.m_StartingSpeed);
         StartCoroutine(GradualChangeSpeed(speedTarget, changeDuration));
     }
 
