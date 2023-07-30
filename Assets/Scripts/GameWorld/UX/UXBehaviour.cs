@@ -13,7 +13,7 @@ public abstract class UXBehaviour : MonoBehaviour
         this.m_Root = this.m_Document.rootVisualElement;
     }
 
-    public void TurnOnOffUX(bool onOff)
+    public virtual void TurnOnOffUX(bool onOff)
     {
         this.m_Document.enabled = onOff;
     }
