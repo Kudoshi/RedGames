@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CrashPfx: {fileID: 667124967765625902}
+  m_CrashSfxName: 
 --- !u!1001 &2183547339373168552
 PrefabInstance:
   m_ObjectHideFlags: 0
